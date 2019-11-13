@@ -17,7 +17,14 @@ public class TitleManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene("SelectScene");
+            Fade_ctr.isFade = true;
+            Fade_ctr.isFadeOut = true;
+            Invoke("Select", 2.0f);
         }
 	}
+
+    void Select()
+    {
+        SceneManager.LoadScene("SelectScene");
+    }
 }
