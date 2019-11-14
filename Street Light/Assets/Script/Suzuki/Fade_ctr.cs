@@ -16,7 +16,7 @@ public class Fade_ctr : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        alpha = 0.0f;
+        alpha = 1.0f;
         isFade = true;
         isFadeIn = true;
 	}
