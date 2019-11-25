@@ -18,6 +18,7 @@ public class Title_Light_ctr : MonoBehaviour
         animator = GetComponent<Animator>();
         scale_x = transform.localScale.x;
         scale_y = transform.localScale.y;
+
     }
 	
 	// Update is called once per frame
@@ -31,15 +32,8 @@ public class Title_Light_ctr : MonoBehaviour
             anime_count = 0;
         }
 
-        if (scale_ctr <= 0)
-        {
-            scale_ctr += 0.002f;
-            if (scale_ctr >= 0.12)
-            {
-                scale_ctr -= 0.002f;
-            }
-        }
-        
-        transform.localScale = new Vector3(scale_x += scale_ctr, scale_y += scale_ctr, 1);
+        //scale_ctr += 0.0002f;
+
+        //transform.localScale = new Vector3(scale_x += scale_ctr, scale_y += scale_ctr, 1);
     }
 }
