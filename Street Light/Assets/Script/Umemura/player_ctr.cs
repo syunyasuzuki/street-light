@@ -80,4 +80,16 @@ public class player_ctr : MonoBehaviour {
         transform.position = Position;
 
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "House")
+        {
+            SceneManager.LoadScene("GameClearScene");
+        }
+        if (col.gameObject.tag == ("switch"))
+        {
+            col.GetComponent<Power_ctr>().Switch_onoff();
+        }
+    }
 }
