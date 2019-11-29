@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Light_ctr : Mapchip {
+public class Light_ctr : MonoBehaviour {
 
     //ライト用スクリプト
 
@@ -66,7 +66,7 @@ public class Light_ctr : Mapchip {
             light_status = false;
             for(int y = (int)position_y; y < position_y + L_scale_y + move_y; y++){
                 for(int x = (int)position_x; x < position_x + L_scale_x + move_x; x++){
-                    Map.GetComponent<Map>().Rewrite_map(x, y, 0);
+                    this.gameObject.GetComponent<Map>().Rewrite_map(x, y, 0);
                 }
             }
         }
@@ -74,7 +74,7 @@ public class Light_ctr : Mapchip {
             light_status = true;
             for (int y = (int)position_y; y < position_y + L_scale_y + move_y; y++){
                 for (int x = (int)position_x; x < position_x + L_scale_x + move_x; x++){
-                    Map.GetComponent<Map>().Rewrite_map(x, y, light_mode[y,x]);
+                    this.gameObject.GetComponent<Map>().Rewrite_map(x, y, light_mode[y,x]);
                 }
             }
         }
@@ -173,7 +173,7 @@ public class Light_ctr : Mapchip {
                     flash_count = 0;
                     for(int y = (int)position_y; y < position_y + L_scale_y + move_y; y++){
                         for(int x = (int)position_x; x < position_x + L_scale_x + move_x; x++){
-                            Map.GetComponent<Map>().Rewrite_map(x, y, 0);
+                            this.gameObject.GetComponent<Map>().Rewrite_map(x, y, 0);
                         }
                     }
                 }
@@ -182,7 +182,7 @@ public class Light_ctr : Mapchip {
                     flash_count = 0;
                     for (int y = 0; y < L_scale_y + move_y; y++){
                         for (int x = 0; x < L_scale_x + move_x; x++){
-                            Map.GetComponent<Map>().Rewrite_map((int)position_x + x,(int)position_y + y, light_mode[y,x]);
+                            this.gameObject.GetComponent<Map>().Rewrite_map((int)position_x + x,(int)position_y + y, light_mode[y,x]);
                         }
                     }
                 }
