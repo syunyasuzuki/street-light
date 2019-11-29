@@ -1,16 +1,9 @@
 fileFormatVersion: 2
-guid: da00962666c640748bcf8524ad6c10d7
-timeCreated: 1575026085
+guid: 0747229040ccf4846be3044d711366b9
+timeCreated: 1575025901
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Button_Image_0
-    21300002: Button_Image_1
-    21300004: Button_Image_2
-    21300006: Button_Image_3
-    21300008: Button_Image_4
-    21300010: Button_Image_5
-    21300012: Button_Image_6
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -47,12 +40,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,105 +109,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Button_Image_0
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 41
-        width: 43
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Button_Image_1
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 41
-        width: 22
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Button_Image_2
-      rect:
-        serializedVersion: 2
-        x: 124
-        y: 41
-        width: 22
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Button_Image_3
-      rect:
-        serializedVersion: 2
-        x: 148
-        y: 41
-        width: 22
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Button_Image_4
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 23
-        width: 43
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Button_Image_5
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 23
-        width: 53
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Button_Image_6
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 4
-        width: 38
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
     physicsShape: []
   spritePackingTag: 

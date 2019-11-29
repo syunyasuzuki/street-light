@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverManager : MonoBehaviour
+public class ClearManager : MonoBehaviour
 {
-
 
 	// Use this for initialization
 	void Start ()
@@ -16,15 +15,15 @@ public class GameOverManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-       
+		
 	}
 
-    public void Go_Title()
+    public void Go_Title_C()
     {
         SceneManager.LoadScene("TitleScene");
     }
 
-    public void Go_Select()
+    public void Next()
     {
         SceneManager.LoadScene("SelectScene");
     }
