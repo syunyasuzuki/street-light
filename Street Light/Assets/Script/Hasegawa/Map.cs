@@ -36,7 +36,7 @@ public class Map : MonoBehaviour {
 
     //マップの書き変え
     public void Rewrite_map(int px,int py,int num){
-        mainmap[map_position_y[py], px + Mapsize_x / 2] = num;
+        mainmap[map_position_y[py], px + map_position_x] = num;
     }
 
     //プレイヤーから座標をもらって光に当たってない場合1を返す
