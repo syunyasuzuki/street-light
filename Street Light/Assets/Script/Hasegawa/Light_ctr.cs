@@ -17,6 +17,7 @@ public class Light_ctr : MonoBehaviour {
 
     [SerializeField] [Header("ライトの動く量（動く場合）")] [Range(-10, 10)] int Move_drct_x = 0;//基点から動く幅X
     [SerializeField] [Range(-10,10)]int Move_drct_y = 0;//基点から動く幅Y
+    [SerializeField] [Range(0, 10)] int Cut_move = 2;
 
     [SerializeField] [Header("点滅の有無、点滅の間隔")] bool Flashing = false;//点滅の有無
     [SerializeField] [Range(0.0f,10.0f)]float F_weight = 1.0f;//点滅の間隔
@@ -105,24 +106,49 @@ public class Light_ctr : MonoBehaviour {
                     else { num = 29; }
                 }
                 break;
+            case 2:
+                if (move_vec == 1) { num = 3; }
+                else { num = 0; }
+                break;
+            case 11:
+                if(move_vec == 1) { num = 12; }
+                else { num = 0; }
+                break;
             case 10:
-                if (num + move_vec == 11) { num = 0; }
-                else { num += move_vec; }
+                if (move_vec == 1) { num = 1; }
+                else { num = 9; }
+                break;
+            case 20:
+                if (move_vec == 1) { num = 21; }
+                else { num = 0; }
                 break;
             case 19:
-                if (num + move_vec == 11) { num = 0; }
-                else { num += move_vec; }
+                if (move_vec == 1) { num = 18; }
+                else { num = 1; }
+                break;
+            case 29:
+                if (move_vec == 1) { num = 30; }
+                else { num = 0; }
                 break;
             case 28:
-                if (num + move_vec == 11) { num = 0; }
-                else { num += move_vec; }
+                if (move_vec == 1) { num = 1; }
+                else { num = 27; }
                 break;
             case 37:
-                if (num + move_vec == 11) { num = 0; }
-                else { num += move_vec; }
+                if (move_vec == 1) { num = 1; }
+                else { num = 36; }
                 break;
             default:
-                num += move_vec;
+                if (witch_move == true){
+                    if (move_vec == 1){
+                        if(num>=12 && num <= 18) { num -= move_vec; }
+                        else { num += move_vec; }
+                    }
+                    else{
+                        if(num>=12 && num <= 18) { num -= move_vec; }
+                        else { num += move_vec * -1; }
+                    }
+                }
                 break;
         }
     }
@@ -196,16 +222,18 @@ public class Light_ctr : MonoBehaviour {
                 }
             }
         }
-        for(int y = 0; y < L_scale_y; y++){
-            for(int x = 0; x < L_scale_x; x++){
-                Map.GetComponent<Map>().Rewrite_map(x, y, Lk_number);
+        for(int y = 0; y < L_scale_y ; y++){
+            for(int x = 0; x < L_scale_x ; x++){
+                Map.GetComponent<Map>().Rewrite_map((int)position_x + x, (int)position_y + y, Lk_number);
             }
         }
+        Debug.Log("start_end");
         count = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        count++;
         flash_count += Time.deltaTime;
         //電源が入っている時だけ処理する
         if (light_status == true){
@@ -231,7 +259,7 @@ public class Light_ctr : MonoBehaviour {
                 }
             }
             //光の移動
-            if (move_vec != 0){
+            if (move_vec != 0 && count % Cut_move == 0){
                 //X
                 if(witch_move == true){
                     if (move_vec == 1 && light_mode[0, L_scale_x] == 1){
@@ -254,15 +282,15 @@ public class Light_ctr : MonoBehaviour {
                         light_change(ref light_mode[y, 0]);
                         light_change(ref light_mode[y, L_scale_x]);
                     }
-                    for(int y = 0; y < L_scale_y + move_y; y++){
-                        for(int x = 0; x < L_scale_x + move_x; x++){
-                            Map.GetComponent<Map>().Rewrite_map(x, y, light_mode[y, x]);
-                        }
-                    }
                     //光本体（見える部分）の移動
-                    position_x += 0.1f *move_vec;
+                    position_x += 0.1f * move_vec;
                     position_x = (float)Math.Round(position_x, 1);
                     transform.position = new Vector3(position_x, position_y, 0);
+                    for (int y = 0; y < L_scale_y + move_y; y++){
+                        for(int x = 0; x < L_scale_x + move_x; x++){
+                            Map.GetComponent<Map>().Rewrite_map(x + (int)position_x, y + (int)position_y, light_mode[y, x]);
+                        }
+                    }
                     //移動先と現在地が重なった場合、または初期位置と現在地が重なった場合方向転換する
                     if (position_x == move_point_x || position_x == L_def_px){
                         move_vec *= -1;
@@ -302,6 +330,7 @@ public class Light_ctr : MonoBehaviour {
                         move_vec *= -1;
                     }
                 }
+                Debug.Log("Update_end");
             }
         }
 	}
