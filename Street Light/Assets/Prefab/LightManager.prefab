@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4027188876774498}
   - component: {fileID: 114951214904347506}
+  - component: {fileID: 114870656503203802}
   m_Layer: 0
   m_Name: LightManager
   m_TagString: Untagged
@@ -40,6 +41,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114870656503203802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1294185092220114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a905b0eb70a2f04ba86a6b9312e0176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114951214904347506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,7 +67,7 @@ MonoBehaviour:
   L_scale_y: 1
   L_def_px: 1
   L_def_py: 1
-  Move_drct_x: -1
+  Move_drct_x: 0
   Move_drct_y: 0
   Flashing: 0
   F_weight: 1
