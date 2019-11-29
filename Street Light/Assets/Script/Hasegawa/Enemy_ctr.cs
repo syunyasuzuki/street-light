@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_ctr : Mapchip {
+public class Enemy_ctr : MonoBehaviour {
 
     //障害物用スクリプト（障害物は動かない）
 
@@ -29,9 +29,7 @@ public class Enemy_ctr : Mapchip {
                 GameObject subgo = Instantiate(Enemy_single, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
                 subgo.name = this.gameObject.name + "-" + count;
                 subgo.transform.parent = this.gameObject.transform;
-                Map.GetComponent<Map>().Rewrite_map(x, y, Lk_number);
             }
         }
 	}
-	
 }
