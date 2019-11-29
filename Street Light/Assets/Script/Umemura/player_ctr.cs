@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class player_ctr : MonoBehaviour {
     
-    [SerializeField] Vector2 SPEED = new Vector2(0.05f, 0.05f);  // プレイヤーの速度調整
+    [SerializeField] Vector3 SPEED = new Vector3(0.05f, 0.05f);  // プレイヤーの速度調整
 
     GameObject Map;
 
@@ -18,7 +18,7 @@ public class player_ctr : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        // ゲームオーバ
+        // ゲームオーバー処理
         if (Map.GetComponent<Map>().P_checker(transform.position.x, transform.position.y) == 1)
         {
             SceneManager.LoadScene("GameOverScene");
@@ -31,9 +31,10 @@ public class player_ctr : MonoBehaviour {
 
     void Move()
     {
+        Vector3 pos = transform.position
 
         // 現在位置をpositionに代入
-        Vector2 Position = transform.position;
+        Vector3 Position = transform.position;
 
         if (Input.GetKey("w"))
         {
@@ -76,5 +77,6 @@ public class player_ctr : MonoBehaviour {
 
         // 現在の位置に加算減算を行ったPositionを代入する
         transform.position = Position;
+
     }
 }
