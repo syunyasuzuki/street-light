@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4182399158771826}
   - component: {fileID: 114225188282586672}
-  - component: {fileID: 114465984560143204}
   m_Layer: 0
   m_Name: LightManager (1)
   m_TagString: Untagged
@@ -55,7 +54,7 @@ MonoBehaviour:
   L_scale_x: 3
   L_scale_y: 3
   L_def_px: 3
-  L_def_py: 2
+  L_def_py: 1
   Move_drct_x: 0
   Move_drct_y: 0
   Flashing: 0
@@ -67,14 +66,3 @@ MonoBehaviour:
   Light_single: {fileID: 1468668821097574, guid: 3f1797a5d9333f542a72abbb0ee76a11,
     type: 2}
   Power: {fileID: 1123280808415170, guid: 820d152dad969a04f853d32a281c5ffb, type: 2}
---- !u!114 &114465984560143204
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1997614051004422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a905b0eb70a2f04ba86a6b9312e0176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
