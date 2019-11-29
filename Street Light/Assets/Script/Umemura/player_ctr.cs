@@ -1,18 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class player_ctr : MonoBehaviour {
     
-    public Vector2 SPEED = new Vector2(0.05f, 0.05f);  // プレイヤーの速度調整
+    [SerializeField] Vector2 SPEED = new Vector2(0.05f, 0.05f);  // プレイヤーの速度調整
+
+    GameObject Map;
 
 	// Use this for initialization
 	void Start () {
+
+        Map = GameObject.Find("MapManager");
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        // ゲームオーバ
+        if (Map.GetComponent<Map>().P_checker(transform.position.x, transform.position.y) == 1)
+        {
+            SceneManager.LoadScene("GameOverScene");
+        }
+
 
         Move();  // 移動処理
 		
