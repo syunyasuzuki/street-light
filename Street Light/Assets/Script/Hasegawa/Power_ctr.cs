@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Power_ctr : Mapchip {
+public class Power_ctr : MonoBehaviour {
 
     //電源用スクリプト
 
