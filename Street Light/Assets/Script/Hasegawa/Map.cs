@@ -38,6 +38,7 @@ public class Map : MonoBehaviour {
     public void Rewrite_map(int px,int py,int num){
         //Debug.Log("もらった値　X："+ px + "　Y："+ py + "　NUM："+ num + "　計算した値　mainmap y "+ map_position_y[py] + "　mainmap x "+ (px+map_position_x));
         mainmap[map_position_y[py], px + map_position_x - 1] = num;
+        
     }
 
     //プレイヤーから座標をもらって光に当たってない場合1を返す

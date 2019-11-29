@@ -87,7 +87,17 @@ public class Light_ctr : MonoBehaviour {
         switch (num){
             case 1:
                 if (witch_move == true){
-                    if (move_vec == 1) { num += move_vec; }
+                    if (move_vec == 1) { num = 19; }
+                    else { num = 10; }
+                }
+                else{
+                    if (move_vec == 1) { num = 37; }
+                    else { num = 28; }
+                }
+                break;
+            case 0:
+                if (witch_move == true){
+                    if (move_vec == 1) { num = 2; }
                     else { num = 11; }
                 }
                 else{
