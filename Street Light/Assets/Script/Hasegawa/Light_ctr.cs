@@ -55,7 +55,6 @@ public class Light_ctr : MonoBehaviour {
     float position_y = 0;//マップでの位置Y
     //ライトの状態を保存する配列
     int[,] light_mode;
-    float[] Template = new float[11] { 1.0f, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1.0f };
 
     //--------------------------------------------------------
 
@@ -233,35 +232,65 @@ public class Light_ctr : MonoBehaviour {
                             light_mode[y, L_scale_x] = 0;
                         }
                     }
-                    if (witch_move == true && move_vec == -1 && light_mode[0, 0] == 1){
+                    if (move_vec == -1 && light_mode[0, 0] == 1){
                         for (int y = 0; y < L_scale_y; y++){
                             for (int x = L_scale_x; x > 0; x--){
                                 light_mode[y, x] = light_mode[y, x - 1];
                             }
-                            light_mode[0, 0] = 0;
+                            light_mode[y, 0] = 0;
                         }
                     }
                     for (int y = 0; y < L_scale_y; y++){
                         light_change(ref light_mode[y, 0]);
                         light_change(ref light_mode[y, L_scale_x]);
                     }
-                    for(int y = 0; y < L_scale_y; y++){
-                        for(int x = 0; x < L_scale_x; x++){
+                    for(int y = 0; y < L_scale_y + move_y; y++){
+                        for(int x = 0; x < L_scale_x + move_x; x++){
                             Map.GetComponent<Map>().Rewrite_map(x, y, light_mode[y, x]);
                         }
                     }
                     //光本体（見える部分）の移動
-                    position_x += 0.1f;
+                    position_x += 0.1f *move_vec;
                     position_x = (float)Math.Round(position_x, 1);
                     transform.position = new Vector3(position_x, position_y, 0);
                     //移動先と現在地が重なった場合、または初期位置と現在地が重なった場合方向転換する
-                    if (position_x >= move_point_x || position_x == L_def_px){
+                    if (position_x == move_point_x || position_x == L_def_px){
                         move_vec *= -1;
                     }
                 }
                 //Y
                 if (witch_move == false){
-
+                    if (move_vec == 1 && light_mode[L_scale_y, 0] == 1){
+                        for (int x = 0; x < L_scale_x; x++){
+                            for (int y = 1; y <= L_scale_y; y++){
+                                light_mode[y - 1, x] = light_mode[y, x];
+                            }
+                            light_mode[L_scale_y, x] = 0;
+                        }
+                    }
+                    if (move_vec == -1 && light_mode[0, 0] == 1){
+                        for(int x = 0; x < L_scale_x; x++){
+                            for(int y = L_scale_y; y > 0; y--){
+                                light_mode[y, x] = light_mode[y - 1, x];
+                            }
+                            light_mode[0, x] = 0;
+                        }
+                    }
+                    for(int x = 0; x < L_scale_x; x++){
+                        light_change(ref light_mode[0, x]);
+                        light_change(ref light_mode[L_scale_y, x]);
+                    }
+                    for(int y = 0; y < L_scale_y + move_y; y++){
+                        for(int x = 0; x < L_scale_x + move_x; x++){
+                            Map.GetComponent<Map>().Rewrite_map(x, y, light_mode[y, x]);
+                        }
+                    }
+                    position_y += 0.1f * move_vec;
+                    position_y = (float)Math.Round(position_y, 1);
+                    transform.position = new Vector3(position_x, position_y, 0);
+                    if (position_y == move_point_y || position_y == L_def_py){
+                        move_vec *= -1;
+                    }
                 }
             }
         }
