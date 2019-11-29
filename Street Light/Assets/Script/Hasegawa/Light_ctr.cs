@@ -32,6 +32,7 @@ public class Light_ctr : MonoBehaviour {
 
     [SerializeField] [Header("その他（触らないで）")]GameObject Light_single;//光１マス分
     [SerializeField] GameObject Power;//電源
+    private GameObject Map;
 
     //--------------------------------------------------------
 
@@ -86,12 +87,40 @@ public class Light_ctr : MonoBehaviour {
     private void light_change(ref int num){
         switch (num){
             case 1:
+                if (witch_move == true){
+                    if (move_vec == 1) { num += move_vec; }
+                    else { num = 11; }
+                }
+                else{
+                    if (move_vec == 1) { num = 20; }
+                    else { num = 29; }
+                }
+                break;
+            case 10:
+                if (num + move_vec == 11) { num = 0; }
+                else { num += move_vec; }
+                break;
+            case 19:
+                if (num + move_vec == 11) { num = 0; }
+                else { num += move_vec; }
+                break;
+            case 28:
+                if (num + move_vec == 11) { num = 0; }
+                else { num += move_vec; }
+                break;
+            case 37:
+                if (num + move_vec == 11) { num = 0; }
+                else { num += move_vec; }
+                break;
+            default:
+                num += move_vec;
                 break;
         }
     }
 
     // Use this for initialization
     void Start () {
+        Map = GameObject.Find("MapManager");
         //各内部パラメータの設定
         position_x = L_def_px;
         position_y = L_def_py;
@@ -158,6 +187,11 @@ public class Light_ctr : MonoBehaviour {
                 }
             }
         }
+        for(int y = 0; y < L_scale_y; y++){
+            for(int x = 0; x < L_scale_x; x++){
+                Map.GetComponent<Map>().Rewrite_map(x, y, Lk_number);
+            }
+        }
         count = 0;
 	}
 	
@@ -211,12 +245,17 @@ public class Light_ctr : MonoBehaviour {
                         light_change(ref light_mode[y, 0]);
                         light_change(ref light_mode[y, L_scale_x]);
                     }
+                    for(int y = 0; y < L_scale_y; y++){
+                        for(int x = 0; x < L_scale_x; x++){
+                            Map.GetComponent<Map>().Rewrite_map(x, y, light_mode[y, x]);
+                        }
+                    }
                     //光本体（見える部分）の移動
                     position_x += 0.1f;
                     position_x = (float)Math.Round(position_x, 1);
                     transform.position = new Vector3(position_x, position_y, 0);
                     //移動先と現在地が重なった場合、または初期位置と現在地が重なった場合方向転換する
-                    if (position_x == move_point_x || position_x == L_def_px){
+                    if (position_x >= move_point_x || position_x == L_def_px){
                         move_vec *= -1;
                     }
                 }

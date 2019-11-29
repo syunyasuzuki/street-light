@@ -16,11 +16,12 @@ public class Enemy_ctr : MonoBehaviour {
     [SerializeField] int E_def_py = 0;//障害物の初期位置Y
 
     [SerializeField] GameObject Enemy_single;
+    private GameObject Map;
 
     private int count = 0;
 	// Use this for initialization
 	void Start () {
-
+        Map = GameObject.Find("MapManager");
         //生成、子オブジェクトにする、マップ書き換え
         count = 0;
         for(int y = E_def_py; y < E_def_py + E_scale_y; y++){
@@ -29,6 +30,7 @@ public class Enemy_ctr : MonoBehaviour {
                 GameObject subgo = Instantiate(Enemy_single, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
                 subgo.name = this.gameObject.name + "-" + count;
                 subgo.transform.parent = this.gameObject.transform;
+                Map.GetComponent<Map>().Rewrite_map(x, y, Lk_number);
             }
         }
 	}
