@@ -14,8 +14,9 @@ public class player_ctr : MonoBehaviour {
 	void Start () {
 
         Map = GameObject.Find("MapManager");
-		
-	}
+        //transform.position = Vector3.zero;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,8 +33,6 @@ public class player_ctr : MonoBehaviour {
 
     void Move()
     {
-
-        transform.position = Vector3.zero;
 
         // 現在位置をpositionに代入
         Vector3 Position = transform.position;
