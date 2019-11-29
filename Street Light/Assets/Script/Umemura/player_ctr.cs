@@ -7,6 +7,7 @@ public class player_ctr : MonoBehaviour {
     
     [SerializeField] Vector3 SPEED = new Vector3(0.05f, 0.05f);  // プレイヤーの速度調整
 
+    Vector3 pos;
     GameObject Map;
 
 	// Use this for initialization
@@ -31,7 +32,8 @@ public class player_ctr : MonoBehaviour {
 
     void Move()
     {
-        Vector3 pos = transform.position
+
+        transform.position = Vector3.zero;
 
         // 現在位置をpositionに代入
         Vector3 Position = transform.position;
