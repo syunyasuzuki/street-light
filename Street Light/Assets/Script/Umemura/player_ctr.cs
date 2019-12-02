@@ -92,4 +92,15 @@ public class player_ctr : MonoBehaviour {
             col.GetComponent<Power_ctr>().Switch_onoff();
         }
     }
+
+    void FixedUpdate()
+    {
+        Rigidbody2D rd = this.transform.GetComponent<Rigidbody2D>();
+        Vector3 force = new Vector3(20.0f, 0, 0);
+
+        if (rd.velocity.magnitude < 10.0f)
+        {
+            rd.AddForce(force);
+        }
+    }
 }
