@@ -225,7 +225,6 @@ public class Light_ctr : MonoBehaviour {
                 Map.GetComponent<Map>().Rewrite_map((int)position_x + x, (int)position_y + y, Lk_number);
             }
         }
-        Debug.Log("start_end");
         count = 0;
 	}
 	
