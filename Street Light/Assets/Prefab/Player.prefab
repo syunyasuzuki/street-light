@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 4167035971390716}
   - component: {fileID: 212040223675458014}
   - component: {fileID: 114412135829627566}
+  - component: {fileID: 58387677854749578}
+  - component: {fileID: 58428573590580406}
+  - component: {fileID: 50026378058448124}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -41,6 +44,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50026378058448124
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1475867026504068}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &58387677854749578
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1475867026504068}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!58 &58428573590580406
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1475867026504068}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &114412135829627566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99acbb5b79ab6e4a83d6b9d0b66afec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SPEED: {x: 0.2, y: 0.2}
+  SPEED: {x: 0.2, y: 0.2, z: 0}
 --- !u!212 &212040223675458014
 SpriteRenderer:
   m_ObjectHideFlags: 1
