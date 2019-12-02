@@ -18,8 +18,10 @@ public class TitleManager : MonoBehaviour
         
 	}
 
+    //ボタンを押したら呼び出すメソッド
     public void Go_select()
     {
+        //セレクトシーンに移動
         SceneManager.LoadScene("SelectScene");
     }
 }

@@ -19,13 +19,17 @@ public class GameOverManager : MonoBehaviour
        
 	}
 
+    //ボタンを押したら呼び出すメソッド
     public void Go_Title()
     {
+        //タイトルシーンに移動
         SceneManager.LoadScene("TitleScene");
     }
 
+    //ボタンを押したら呼び出すメソッド
     public void Go_Select()
     {
+        //セレクトシーンに移動
         SceneManager.LoadScene("SelectScene");
     }
 }

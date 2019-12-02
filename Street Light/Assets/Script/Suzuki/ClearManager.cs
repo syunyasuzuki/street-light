@@ -18,13 +18,17 @@ public class ClearManager : MonoBehaviour
 		
 	}
 
+    //ボタンを押したら呼び出すメソッド
     public void Go_Title_C()
     {
+        //タイトルシーンに移動
         SceneManager.LoadScene("TitleScene");
     }
 
+    //ボタンを押したら呼び出すメソッド
     public void Next()
     {
+        //セレクトシーンに移動
         SceneManager.LoadScene("SelectScene");
     }
 }

@@ -6,8 +6,6 @@ public class Title_Light_ctr : MonoBehaviour
 {
     Animator animator;
 
-    int anime_count;
-
     float scale_x;
     float scale_y;
     float scale_ctr;
@@ -18,18 +16,16 @@ public class Title_Light_ctr : MonoBehaviour
         animator = GetComponent<Animator>();
         scale_x = transform.localScale.x;
         scale_y = transform.localScale.y;
-
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        anime_count++;
         
-        if (anime_count == 180)
+
+        if (Time.time % 3 == 0)
         {
             animator.SetTrigger("FlashTrigger");
-            anime_count = 0;
         }
 
         //scale_ctr += 0.0002f;
