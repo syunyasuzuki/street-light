@@ -37,8 +37,9 @@ public class Map : MonoBehaviour {
     //マップの書き変え
     public void Rewrite_map(int px,int py,int num){
         Debug.Log("もらった値　X："+ px + "　Y："+ py + "　NUM："+ num + "　計算した値　mainmap y "+ map_position_y[py] + "　mainmap x "+ (px+map_position_x));
-        if (px + map_position_x < Mapsize_x || map_position_y[py] >= Mapsize_y) { }
-        mainmap[map_position_y[py], px + map_position_x] = num;
+        if (px + map_position_x < Mapsize_x || map_position_y[py] >= Mapsize_y){
+            mainmap[map_position_y[py], px + map_position_x] = num;
+        }
         
     }
 
