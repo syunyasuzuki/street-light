@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1927499027288064}
+  m_RootGameObject: {fileID: 1203745401324744}
   m_IsPrefabParent: 1
---- !u!1 &1927499027288064
+--- !u!1 &1203745401324744
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4970863839444960}
-  - component: {fileID: 114969181160828542}
+  - component: {fileID: 4488513840222686}
+  - component: {fileID: 114853741229210022}
   m_Layer: 0
-  m_Name: EnemyManager (1)
+  m_Name: LightManager 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4970863839444960
+--- !u!4 &4488513840222686
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1927499027288064}
+  m_GameObject: {fileID: 1203745401324744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,20 +40,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114969181160828542
+--- !u!114 &114853741229210022
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1927499027288064}
+  m_GameObject: {fileID: 1203745401324744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c195b845850fc4bb775b8321414042, type: 3}
+  m_Script: {fileID: 11500000, guid: ac95789b3661fbe41a7e687b2c2bddd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  E_scale_x: 1
-  E_scale_y: 1
-  E_def_px: 5
-  E_def_py: 2
-  Enemy_single: {fileID: 1685913510892452, guid: 0904e222eb5241441835c5c0eaccd9f4,
+  L_scale_x: 3
+  L_scale_y: 1
+  L_def_px: -1
+  L_def_py: 16
+  Move_drct_x: 0
+  Move_drct_y: 0
+  Cut_move: 2
+  Flashing: 0
+  F_weight: 1
+  Need_power: 0
+  Def_power: 1
+  P_def_px: 3
+  P_def_py: 5
+  Light_single: {fileID: 1468668821097574, guid: 3f1797a5d9333f542a72abbb0ee76a11,
     type: 2}
+  Power: {fileID: 1123280808415170, guid: 820d152dad969a04f853d32a281c5ffb, type: 2}
