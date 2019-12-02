@@ -86,7 +86,7 @@ public class Light_ctr : MonoBehaviour {
     //書き変えの短縮
     private void light_change(ref int num){
         switch (num){
-            case 1:
+            case 0:
                 if (witch_move == true){
                     if (move_vec == 1) { num = 19; }
                     else { num = 10; }
@@ -96,7 +96,7 @@ public class Light_ctr : MonoBehaviour {
                     else { num = 28; }
                 }
                 break;
-            case 0:
+            case 1:
                 if (witch_move == true){
                     if (move_vec == 1) { num = 2; }
                     else { num = 11; }
@@ -108,46 +108,44 @@ public class Light_ctr : MonoBehaviour {
                 break;
             case 2:
                 if (move_vec == 1) { num = 3; }
-                else { num = 0; }
-                break;
-            case 11:
-                if(move_vec == 1) { num = 12; }
-                else { num = 0; }
+                else { num = 1; }
                 break;
             case 10:
-                if (move_vec == 1) { num = 1; }
+                if (move_vec == 1) { num = 0; }
                 else { num = 9; }
                 break;
-            case 20:
-                if (move_vec == 1) { num = 21; }
-                else { num = 0; }
+            case 11:
+                if (move_vec == 1) { num = 1; }
+                else { num = 12; }
                 break;
             case 19:
                 if (move_vec == 1) { num = 18; }
-                else { num = 1; }
-                break;
-            case 29:
-                if (move_vec == 1) { num = 30; }
                 else { num = 0; }
                 break;
+            case 20:
+                if (move_vec == 1) { num = 21; }
+                else { num = 1; }
+                break;
             case 28:
-                if (move_vec == 1) { num = 1; }
+                if (move_vec == 1) { num = 0; }
                 else { num = 27; }
                 break;
-            case 37:
+            case 29:
                 if (move_vec == 1) { num = 1; }
-                else { num = 36; }
+                else { num = 30; }
+                break;
+            case 37:
+                if (move_vec == 1) { num = 36; }
+                else { num = 0; }
                 break;
             default:
                 if (witch_move == true){
-                    if (move_vec == 1){
-                        if(num>=12 && num <= 18) { num -= move_vec; }
-                        else { num += move_vec; }
-                    }
-                    else{
-                        if(num>=12 && num <= 18) { num -= move_vec; }
-                        else { num += move_vec * -1; }
-                    }
+                    if (num >= 3 && num <= 9) { num += move_vec; }
+                    else { num -= move_vec; }
+                }
+                else{
+                    if (num >= 21 && num <= 27) { num += move_vec; }
+                    else { num -= move_vec; }
                 }
                 break;
         }
@@ -227,7 +225,6 @@ public class Light_ctr : MonoBehaviour {
                 Map.GetComponent<Map>().Rewrite_map((int)position_x + x, (int)position_y + y, Lk_number);
             }
         }
-        Debug.Log("start_end");
         count = 0;
 	}
 	
