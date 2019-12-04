@@ -7,9 +7,11 @@ public class player_ctr : MonoBehaviour {
     
     [SerializeField] Vector3 SPEED = new Vector3(0.05f, 0.05f);  // プレイヤーの速度調整
 
+    int count;
+    
     Vector3 pos;
     GameObject Map;
-
+    
 	// Use this for initialization
 	void Start () {
 
@@ -33,7 +35,6 @@ public class player_ctr : MonoBehaviour {
 
     void Move()
     {
-
         // 現在位置をpositionに代入
         Vector3 Position = transform.position;
 
@@ -93,14 +94,16 @@ public class player_ctr : MonoBehaviour {
         }
     }
 
-    void FixedUpdate()
+    public int death()
     {
-        Rigidbody2D rd = this.transform.GetComponent<Rigidbody2D>();
-        Vector3 force = new Vector3(20.0f, 0, 0);
-
-        if (rd.velocity.magnitude < 10.0f)
-        {
-            rd.AddForce(force);
-        }
+        return count;
     }
+
+    //void FixedUpdate()
+    //{
+    //    Rigidbody2D rd = this.transform.GetComponent<Rigidbody2D>();
+    //    Vector3 now = rd.position;  // 座標を取得
+    //    now += new Vector3(0.0f, 0.5f, 0.0f);
+    //    rd.position = now;
+    //}
 }
