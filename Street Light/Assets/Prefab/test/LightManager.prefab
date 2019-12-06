@@ -55,9 +55,10 @@ MonoBehaviour:
   L_scale_y: 1
   L_def_px: -1
   L_def_py: 0
-  Move_drct_x: 0
-  Move_drct_y: 0
-  Cut_move: 10
+  Need_Move: 1
+  Move_vec: 1
+  Move_drct: 2
+  Cut_move: 1
   Flashing: 0
   F_weight: 1
   Need_power: 0
