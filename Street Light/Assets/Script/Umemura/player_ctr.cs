@@ -8,7 +8,6 @@ public class player_ctr : MonoBehaviour {
     [SerializeField] Vector3 SPEED = new Vector3(0.05f, 0.05f);  // プレイヤーの速度調整
 
     int count;
-    
     Vector3 pos;
     GameObject Map;
     
@@ -29,58 +28,58 @@ public class player_ctr : MonoBehaviour {
         }
 
 
-        Move();  // 移動処理
+        //Move();  // 移動処理
 		
 	}
 
-    void Move()
-    {
-        // 現在位置をpositionに代入
-        Vector3 Position = transform.position;
+    //void Move()
+    //{
+    //    // 現在位置をpositionに代入
+    //    Vector3 Position = transform.position;
 
-        if (Input.GetKey("w"))
-        {
+    //    if (Input.GetKey("w"))
+    //    {
 
-            // 代入したPositionに対して加算減算を行う
-            Position.y += SPEED.y;
+    //        // 代入したPositionに対して加算減算を行う
+    //        Position.y += SPEED.y;
 
-            float z = 0;                                           // wを押すと前を向く
-            this.transform.rotation = Quaternion.Euler(0, 0, z);   // 進む向きを変える
+    //        float z = 0;                                           // wを押すと前を向く
+    //        this.transform.rotation = Quaternion.Euler(0, 0, z);   // 進む向きを変える
 
-        }
-        else if (Input.GetKey("s"))
-        {
+    //    }
+    //    else if (Input.GetKey("s"))
+    //    {
 
-            // 代入したPositionに対して加算減算を行う
-            Position.y -= SPEED.y;
+    //        // 代入したPositionに対して加算減算を行う
+    //        Position.y -= SPEED.y;
 
-            float z = 180;                                         // sを押すと後ろを向く
-            this.transform.rotation = Quaternion.Euler(0, 0, z);   // 進む向きを変える
+    //        float z = 180;                                         // sを押すと後ろを向く
+    //        this.transform.rotation = Quaternion.Euler(0, 0, z);   // 進む向きを変える
 
-        }else if (Input.GetKey("a"))
-        {
+    //    }else if (Input.GetKey("a"))
+    //    {
 
-            // 代入したPositionに対して加算減算を行う
-            Position.x -= SPEED.x;
+    //        // 代入したPositionに対して加算減算を行う
+    //        Position.x -= SPEED.x;
 
-            float z = 90;                                          // aを押すと左を向く
-            this.transform.rotation = Quaternion.Euler(0, 0, z);   // 進む向きを変える
+    //        float z = 90;                                          // aを押すと左を向く
+    //        this.transform.rotation = Quaternion.Euler(0, 0, z);   // 進む向きを変える
 
-        }
-        else if (Input.GetKey("d"))
-        {
+    //    }
+    //    else if (Input.GetKey("d"))
+    //    {
 
-            // 代入したPositionに対して加算減算を行う
-            Position.x += SPEED.x;
+    //        // 代入したPositionに対して加算減算を行う
+    //        Position.x += SPEED.x;
 
-            float z = -90;                                        // dを押したら右を向く
-            this.transform.rotation = Quaternion.Euler(0, 0, z);  // 進む向きを変える
-        }
+    //        float z = -90;                                        // dを押したら右を向く
+    //        this.transform.rotation = Quaternion.Euler(0, 0, z);  // 進む向きを変える
+    //    }
 
-        // 現在の位置に加算減算を行ったPositionを代入する
-        transform.position = Position;
+    //    // 現在の位置に加算減算を行ったPositionを代入する
+    //    transform.position = Position;
 
-    }
+    //}
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -99,11 +98,8 @@ public class player_ctr : MonoBehaviour {
         return count;
     }
 
-    //void FixedUpdate()
-    //{
-    //    Rigidbody2D rd = this.transform.GetComponent<Rigidbody2D>();
-    //    Vector3 now = rd.position;  // 座標を取得
-    //    now += new Vector3(0.0f, 0.5f, 0.0f);
-    //    rd.position = now;
-    //}
+    void FixedUpdate()
+    {
+        
+    }
 }
