@@ -428,7 +428,7 @@ Prefab:
     - target: {fileID: 114923428688262140, guid: fef7e2dd8d371b447b43a6d4a5639bd4,
         type: 2}
       propertyPath: Light_Prfb.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114923428688262140, guid: fef7e2dd8d371b447b43a6d4a5639bd4,
         type: 2}
