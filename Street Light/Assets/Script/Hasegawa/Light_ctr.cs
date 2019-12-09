@@ -211,7 +211,7 @@ public class Light_ctr : MonoBehaviour {
             //進ませる方向に応じてライトの位置を配列の中でずらすX
             if (Move_vec == true){
                 count = 0;
-                if (0 < move_point){
+                if (0 > move_point){
                     count = 1;
                 }
                 for (int y = 0; y < L_scale_y; y++){
@@ -257,7 +257,6 @@ public class Light_ctr : MonoBehaviour {
         flash_count += Time.deltaTime;
         //電源が入っている時だけ処理する
         if (light_status == true){
-            move_count += move_vec;
             //点滅がオンになってる場合点滅させる
             if (Flashing == true){
                 if (light_flash == true && flash_count > F_weight){
@@ -283,20 +282,26 @@ public class Light_ctr : MonoBehaviour {
             }
             //光の移動
             if (Need_Move == true && cut_count % Cut_move == 0){
+                move_count += move_vec;
+                Debug.Log("実行開始　カウント：" + move_count);
                 //X
                 if (Move_vec == true ){
+                    Debug.Log("X軸移動処理開始");
                     //内部数値移動処理
                     for(int y=0;y<L_scale_y + move_y; y++){
                         Light_change(ref light_mode[y, 0]);
                         Light_change(ref light_mode[y, L_scale_x]);
                     }
-                    if (move_count / 10 == 0){
+                    if (move_count % 10 == 0){
                         //反転処理
                         if (move_count == move_point || move_count == 0){
+                            Debug.Log("反転処理開始　move_vec = " + move_vec);
                             move_vec *= -1;
+                            Debug.Log("反転処理終了　move_vec =" + move_vec);
                         }
                         //枠移動処理
                         else{
+                            Debug.Log("枠移動処理開始");
                             count = 0;
                             //右向き
                             if (move_vec == 1){
@@ -307,6 +312,7 @@ public class Light_ctr : MonoBehaviour {
                                 count = 1;
                                 position_x--;
                             }
+                            Debug.Log("position_x = " + position_x + "　count = " + count);
                             //配列をクリア
                             for (int y = 0; y < L_scale_y + move_y; y++){
                                 for (int x = 0; x < L_scale_x + move_x; x++){
@@ -316,11 +322,14 @@ public class Light_ctr : MonoBehaviour {
                             //街灯を再設定
                             for (int y = 0; y < L_scale_y; y++){
                                 for (int x = 0; x < L_scale_x; x++){
+                                    Debug.Log("y = " + y + "　x + count = " + ( x + count));
                                     light_mode[y, x + count] = 1;
                                 }
                             }
+                            Debug.Log("枠移動処理終了");
                         }
                     }
+                    Debug.Log("X軸移動処理終了");
                 }
                 //Y
                 else {
@@ -362,13 +371,17 @@ public class Light_ctr : MonoBehaviour {
                     }
                 }
                 //移動処理
-                transform.position = new Vector3(L_def_px + Preset * move_count * move_vec * move_x, L_def_py + Preset * move_count * move_vec * move_y, 0);
+                Debug.Log("移動処理開始　x = " + (L_def_px + Preset * move_count * move_x) + "　y = " + (L_def_py + Preset * move_count * move_vec * move_y));
+                transform.position = new Vector3(L_def_px + Preset * move_count * move_x, L_def_py + Preset * move_count * move_y, 0);
+                Debug.Log("移動処理終了");
                 //マップに反映させる
-                for(int y = 0; y < L_scale_y + move_y; y++){
+                Debug.Log("マップ反映開始");
+                for (int y = 0; y < L_scale_y + move_y; y++){
                     for(int x = 0; x < L_scale_x + move_x; x++){
                         Map.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x, L_def_py + position_y + y, light_mode[y, x]);
                     }
                 }
+                Debug.Log("マップ反映終了");
             }
         }
 	}
