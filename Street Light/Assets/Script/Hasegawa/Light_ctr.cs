@@ -32,7 +32,7 @@ public class Light_ctr : MonoBehaviour {
 
     //---------------外から取り込むやつ-----------------------
 
-    [SerializeField] [Header("その他（触らないで）")]GameObject Light_single;//光１マス分
+    [SerializeField] [Header("その他（触らないで）")] GameObject Light_single;//光１マス分
     [SerializeField] GameObject Power;//電源
     private GameObject Map;
 
@@ -188,18 +188,19 @@ public class Light_ctr : MonoBehaviour {
         //電源が必要な場合配置する
         if (Need_power == true){
             GameObject subgo = Instantiate(Power, new Vector3(P_def_px, P_def_py, 0), Quaternion.identity);
-            subgo.name = this.gameObject.name + "-power";
-            subgo.GetComponent<Power_ctr>().What_parent(this.gameObject.name, Def_power);
-            subgo.transform.parent = this.gameObject.transform;
+            subgo.name = gameObject.name + "-power";
+            subgo.GetComponent<Power_ctr>().What_parent(gameObject.name, Def_power);
+            subgo.transform.parent = gameObject.transform;
             light_status = Def_power;
         }
         //ライトを配置、名前を変更、子オブジェクトにする
         count = 0;
-        for(int y = L_def_py; y < L_def_py + L_scale_y; y++){
-            for(int x = L_def_px; x < L_def_px + L_scale_x; x++){
-                GameObject subgo = Instantiate(Light_single, new Vector3(x, y, 0), Quaternion.identity);
-                subgo.name = this.gameObject.name + "-"+ count;
-                subgo.transform.parent = this.gameObject.transform;
+        for(int y = 0; y < L_scale_y ; y++){
+            for(int x = 0; x < L_scale_x; x++){
+                GameObject subgo = Instantiate(Light_single) as GameObject;
+                subgo.name = gameObject.name + "-"+ count;
+                subgo.transform.parent = gameObject.transform;
+                subgo.transform.localPosition = new Vector3(x, y, 0);
                 light_child[count] = subgo;
                 count++;
             }
@@ -330,6 +331,7 @@ public class Light_ctr : MonoBehaviour {
                         }
                     }
                     Debug.Log("X軸移動処理終了");
+                    transform.position = new Vector3(L_def_px + Preset * move_count, L_def_py, 0);
                 }
                 //Y
                 else {
@@ -369,11 +371,8 @@ public class Light_ctr : MonoBehaviour {
                             }
                         }
                     }
+                    transform.position = new Vector3(L_def_px, L_def_py + Preset * move_count, 0);
                 }
-                //移動処理
-                Debug.Log("移動処理開始　x = " + (L_def_px + Preset * move_count * move_x) + "　y = " + (L_def_py + Preset * move_count * move_vec * move_y));
-                transform.position = new Vector3(L_def_px + Preset * move_count * move_x, L_def_py + Preset * move_count * move_y, 0);
-                Debug.Log("移動処理終了");
                 //マップに反映させる
                 Debug.Log("マップ反映開始");
                 for (int y = 0; y < L_scale_y + move_y; y++){
