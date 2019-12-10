@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 public class player_ctr : MonoBehaviour {
-    
+
     [SerializeField] Vector3 SPEED = new Vector3(0.05f, 0.05f);  // プレイヤーの速度調整
 
+    float alpha = 1.0f;
     int count;
     Vector3 pos;
     GameObject Map;
-    
+    bool q=true;
 	// Use this for initialization
 	void Start () {
 
         Map = GameObject.Find("MapManager");
-        //transform.position = Vector3.zero;
 
     }
 	
@@ -24,12 +25,21 @@ public class player_ctr : MonoBehaviour {
         // ゲームオーバー処理
         if (Map.GetComponent<Map>().P_checker(transform.position.x, transform.position.y) == 1)
         {
-            SceneManager.LoadScene("GameOverScene");
+            Invoke("GameOver", 2.0f);
+            q = false;
         }
 
+        if (q)
+        {
+            Move();  // 移動処理
+        }
 
-        Move();  // 移動処理
-
+    }
+ 
+    void GameOver()
+    {
+        transform.position = Vector3.zero;
+        q = true;
     }
 
     void Move()
