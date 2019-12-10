@@ -13,13 +13,11 @@ public class Enemy_ctr : MonoBehaviour {
     [SerializeField] int E_def_py = 0;//障害物の初期位置Y
 
     [SerializeField] GameObject Enemy_single;
-    private GameObject Map;
 
     private int count = 0;
 	// Use this for initialization
 	void Start () {
-        Map = GameObject.Find("MapManager");
-        //生成、子オブジェクトにする、マップ書き換え
+        //生成、子オブジェクトにする
         transform.position = new Vector3(E_def_px, E_def_py, 0);
         count = 0;
         for(int y = 0; y < E_scale_y; y++){
