@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   E_scale_x: 2
   E_scale_y: 2
-  E_def_px: -3
-  E_def_py: 2
+  E_def_px: 3
+  E_def_py: 1
   Enemy_single: {fileID: 1685913510892452, guid: 0904e222eb5241441835c5c0eaccd9f4,
     type: 2}

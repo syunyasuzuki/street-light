@@ -162,17 +162,19 @@ public class Light_ctr : MonoBehaviour {
     //α値変更
     private void Light_on(){
         foreach(GameObject subgo in light_child){
-            subgo.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0);
+            subgo.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
     }
     private void Light_off(){
         foreach(GameObject subgo in light_child){
-            subgo.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            subgo.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         }
     }
 
     // Use this for initialization
     void Start () {
+        //基点位置へ移動させる
+        transform.position = new Vector3(L_def_px, L_def_py, 0);
         Map = GameObject.Find("MapManager");
         //ライトの状態を保存する配列の確定
         if (Need_Move == true){
@@ -189,6 +191,7 @@ public class Light_ctr : MonoBehaviour {
         if (Need_power == true){
             GameObject subgo = Instantiate(Power, new Vector3(P_def_px, P_def_py, 0), Quaternion.identity);
             subgo.name = gameObject.name + "-power";
+            subgo.GetComponent<Subgo_ctr>().State_set(P_def_px, P_def_py);
             subgo.GetComponent<Power_ctr>().What_parent(gameObject.name, Def_power);
             subgo.transform.parent = gameObject.transform;
             light_status = Def_power;
@@ -265,7 +268,7 @@ public class Light_ctr : MonoBehaviour {
                     flash_count = 0;
                     for(int y = 0; y < L_scale_y + move_y; y++){
                         for(int x = 0; x < L_scale_x + move_x; x++){
-                            this.gameObject.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x, L_def_py + position_y + y, 0);
+                            Map.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x, L_def_py + position_y + y, 0);
                         }
                     }
                     Light_off();
@@ -275,7 +278,7 @@ public class Light_ctr : MonoBehaviour {
                     flash_count = 0;
                     for (int y = 0; y < L_scale_y + move_y; y++){
                         for (int x = 0; x < L_scale_x + move_x; x++){
-                            this.gameObject.GetComponent<Map>().Rewrite_map((int)position_x + x,(int)position_y + y, light_mode[y,x]);
+                            Map.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x,L_def_py + position_y + y, light_mode[y,x]);
                         }
                     }
                     Light_on();
@@ -284,25 +287,20 @@ public class Light_ctr : MonoBehaviour {
             //光の移動
             if (Need_Move == true && cut_count % Cut_move == 0){
                 move_count += move_vec;
-                Debug.Log("実行開始　カウント：" + move_count);
                 //X
                 if (Move_vec == true ){
-                    Debug.Log("X軸移動処理開始");
                     //内部数値移動処理
-                    for(int y=0;y<L_scale_y + move_y; y++){
+                    for(int y=0;y < L_scale_y + move_y; y++){
                         Light_change(ref light_mode[y, 0]);
                         Light_change(ref light_mode[y, L_scale_x]);
                     }
                     if (move_count % 10 == 0){
                         //反転処理
                         if (move_count == move_point || move_count == 0){
-                            Debug.Log("反転処理開始　move_vec = " + move_vec);
                             move_vec *= -1;
-                            Debug.Log("反転処理終了　move_vec =" + move_vec);
                         }
                         //枠移動処理
                         else{
-                            Debug.Log("枠移動処理開始");
                             count = 0;
                             //右向き
                             if (move_vec == 1){
@@ -313,7 +311,6 @@ public class Light_ctr : MonoBehaviour {
                                 count = 1;
                                 position_x--;
                             }
-                            Debug.Log("position_x = " + position_x + "　count = " + count);
                             //配列をクリア
                             for (int y = 0; y < L_scale_y + move_y; y++){
                                 for (int x = 0; x < L_scale_x + move_x; x++){
@@ -323,14 +320,11 @@ public class Light_ctr : MonoBehaviour {
                             //街灯を再設定
                             for (int y = 0; y < L_scale_y; y++){
                                 for (int x = 0; x < L_scale_x; x++){
-                                    Debug.Log("y = " + y + "　x + count = " + ( x + count));
                                     light_mode[y, x + count] = 1;
                                 }
                             }
-                            Debug.Log("枠移動処理終了");
                         }
                     }
-                    Debug.Log("X軸移動処理終了");
                     transform.position = new Vector3(L_def_px + Preset * move_count, L_def_py, 0);
                 }
                 //Y
@@ -340,7 +334,7 @@ public class Light_ctr : MonoBehaviour {
                         Light_change(ref light_mode[0, x]);
                         Light_change(ref light_mode[L_scale_y, x]);
                     }
-                    if (move_count / 10 == 0){
+                    if (move_count % 10 == 0){
                         //反転処理
                         if (move_count == move_point || move_count == 0){
                             move_vec *= -1;
@@ -374,13 +368,11 @@ public class Light_ctr : MonoBehaviour {
                     transform.position = new Vector3(L_def_px, L_def_py + Preset * move_count, 0);
                 }
                 //マップに反映させる
-                Debug.Log("マップ反映開始");
                 for (int y = 0; y < L_scale_y + move_y; y++){
                     for(int x = 0; x < L_scale_x + move_x; x++){
                         Map.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x, L_def_py + position_y + y, light_mode[y, x]);
                     }
                 }
-                Debug.Log("マップ反映終了");
             }
         }
 	}

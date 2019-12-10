@@ -51,12 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac95789b3661fbe41a7e687b2c2bddd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  L_scale_x: 3
-  L_scale_y: 1
-  L_def_px: 1
-  L_def_py: 15
-  Move_drct_x: 0
-  Move_drct_y: 0
+  L_scale_x: 2
+  L_scale_y: 2
+  L_def_px: 2
+  L_def_py: 2
+  Need_Move: 1
+  Move_vec: 1
+  Move_drct: 2
   Cut_move: 2
   Flashing: 0
   F_weight: 1

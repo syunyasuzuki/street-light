@@ -36,12 +36,19 @@ public class Map : MonoBehaviour {
 
     //マップの書き変え
     public void Rewrite_map(int px,int py,int num){
-        Debug.Log("もらった値　X："+ px + "　Y："+ py + "　NUM："+ num + "　計算した値　mainmap y "+ (map_position_y - py) + "　mainmap x "+ (px + map_position_x));
         //範囲外をはじく
         if (px + map_position_x < Mapsize_x || (map_position_y - py < Mapsize_y && map_position_y - py >= 0)){
             mainmap[map_position_y - py, px + map_position_x] = num;
         }
         
+    }
+
+    //マップの状態を知る
+    public int Map_state(int x,int y){
+        if (x+map_position_x < 0 || x + map_position_x >= Mapsize_x || map_position_y - y < 0 || map_position_y - y >= Mapsize_y){
+            return 0;
+        }
+        return mainmap[map_position_y - y, x + map_position_x];
     }
 
     //プレイヤーから座標をもらって光に当たってない場合1を返す

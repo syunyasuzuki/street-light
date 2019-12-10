@@ -57,8 +57,8 @@ MonoBehaviour:
   L_def_py: 1
   Need_Move: 1
   Move_vec: 1
-  Move_drct: 2
-  Cut_move: 2
+  Move_drct: 3
+  Cut_move: 4
   Flashing: 0
   F_weight: 1
   Need_power: 0

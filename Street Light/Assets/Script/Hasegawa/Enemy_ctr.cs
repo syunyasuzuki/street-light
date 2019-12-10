@@ -6,9 +6,6 @@ public class Enemy_ctr : MonoBehaviour {
 
     //障害物用スクリプト（障害物は動かない）
 
-    //障害物のマップでの固定番号
-    private int Lk_number = 38;
-
     [SerializeField] int E_scale_x = 1;//障害物の大きさX
     [SerializeField] int E_scale_y = 1;//障害物の大きさY
 
@@ -23,14 +20,17 @@ public class Enemy_ctr : MonoBehaviour {
 	void Start () {
         Map = GameObject.Find("MapManager");
         //生成、子オブジェクトにする、マップ書き換え
+        transform.position = new Vector3(E_def_px, E_def_py, 0);
         count = 0;
-        for(int y = E_def_py; y < E_def_py + E_scale_y; y++){
-            for(int x = E_def_px; x < E_def_px + E_scale_x; x++){
+        for(int y = 0; y < E_scale_y; y++){
+            for(int x = 0; x < E_scale_x; x++){
                 count++;
-                GameObject subgo = Instantiate(Enemy_single, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
+                GameObject subgo = Instantiate(Enemy_single) as GameObject;
                 subgo.name = this.gameObject.name + "-" + count;
+                subgo.GetComponent<Subgo_ctr>().State_set(E_def_px + x, E_def_py + y);
                 subgo.transform.parent = this.gameObject.transform;
-                Map.GetComponent<Map>().Rewrite_map(x, y, Lk_number);
+                subgo.transform.localPosition = new Vector3(x, y, 0);
+                subgo.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
             }
         }
 	}

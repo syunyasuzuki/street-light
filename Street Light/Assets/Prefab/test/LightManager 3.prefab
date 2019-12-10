@@ -52,12 +52,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   L_scale_x: 2
-  L_scale_y: 5
+  L_scale_y: 2
   L_def_px: 0
-  L_def_py: 10
-  Move_drct_x: 0
-  Move_drct_y: 0
-  Cut_move: 2
+  L_def_py: 4
+  Need_Move: 1
+  Move_vec: 0
+  Move_drct: -2
+  Cut_move: 3
   Flashing: 0
   F_weight: 1
   Need_power: 0
