@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 527224853}
   - component: {fileID: 527224852}
   - component: {fileID: 527224854}
+  - component: {fileID: 527224855}
   m_Layer: 0
   m_Name: SelectManager
   m_TagString: Untagged
@@ -234,6 +235,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &527224855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 527224851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2353125a1fc254d438765c8861830cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &653533229
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +396,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 527224852}
+      - m_Target: {fileID: 527224855}
         m_MethodName: Game1
         m_Mode: 1
         m_Arguments:
@@ -735,7 +747,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 527224852}
+      - m_Target: {fileID: 527224855}
         m_MethodName: Game3
         m_Mode: 1
         m_Arguments:
@@ -857,7 +869,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 527224852}
+      - m_Target: {fileID: 527224855}
         m_MethodName: Game2
         m_Mode: 1
         m_Arguments:
