@@ -42,6 +42,7 @@ public class Light_ctr : MonoBehaviour {
 
     //ライトのマップでの固定番号（完全に光に当たってるところ）
     private const int Lk_number = 1;
+    float Stop_time = 0.75f;//止める時間
     private int count = 0;//一時的な入れ物
     private int cut_count = 0;
     private int move_vec = 0;//現在の移動方向
@@ -52,6 +53,7 @@ public class Light_ctr : MonoBehaviour {
     //移動先までの合計カウント
     private int move_point = 0;
     private bool light_status = true;//最初から光ってるか
+    private float move_stoper = 0;
     //現在ライトがついているか（点滅時）
     private bool light_flash = true;
     float flash_count = 0;//点滅時のカウント
@@ -286,7 +288,8 @@ public class Light_ctr : MonoBehaviour {
             }
             if (light_flash == true){
                 //光の移動
-                if (Need_Move == true && cut_count % Cut_move == 0){
+                move_stoper -= Time.deltaTime;
+                if (Need_Move == true && cut_count % Cut_move == 0 && move_stoper <= 0){
                     move_count += move_vec;
                     //X
                     if (Move_vec == true){
@@ -298,7 +301,22 @@ public class Light_ctr : MonoBehaviour {
                         if (move_count % 10 == 0){
                             //反転処理
                             if (move_count == move_point || move_count == 0){
+                                move_stoper = Stop_time;
                                 move_vec *= -1;
+                                count = 0;
+                                if (move_vec == -1){
+                                    count = 1;
+                                }
+                                for(int y = 0; y < L_scale_y + move_y; y++){
+                                    for(int x = 0; x < L_scale_x + move_x; x++){
+                                        light_mode[y, x] = 0;
+                                    }
+                                }
+                                for(int y = 0; y < L_scale_y; y++){
+                                    for(int x = 0; x < L_scale_x; x++){
+                                        light_mode[y, x + count] = 1;
+                                    }
+                                }
                             }
                             //枠移動処理
                             else{
@@ -338,6 +356,7 @@ public class Light_ctr : MonoBehaviour {
                         if (move_count % 10 == 0){
                             //反転処理
                             if (move_count == move_point || move_count == 0){
+                                move_stoper = Stop_time;
                                 move_vec *= -1;
                             }
                             //枠移動処理

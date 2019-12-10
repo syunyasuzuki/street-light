@@ -32,6 +32,7 @@ public class Map : MonoBehaviour {
     [SerializeField] [Header("ステージの落とし物")] GameObject Item;
     [SerializeField] [Header("落とし物の落ちてる位置")] int Item_px = 0;
     [SerializeField] int Item_py = 0;
+    [SerializeField] bool Need_item = false;
 
     //------------------------------------------------------------
 
@@ -40,7 +41,7 @@ public class Map : MonoBehaviour {
     //マップの書き変え
     public void Rewrite_map(int px,int py,int num){
         //範囲外をはじく
-        if (px + map_position_x < Mapsize_x || (map_position_y - py < Mapsize_y && map_position_y - py >= 0)){
+        if (px + map_position_x < 0 || px + map_position_x >= Mapsize_x || map_position_y - py < 0 || map_position_y - py >= Mapsize_y){
             mainmap[map_position_y - py, px + map_position_x] = num;
         }
         
@@ -51,6 +52,7 @@ public class Map : MonoBehaviour {
         if (x+map_position_x < 0 || x + map_position_x >= Mapsize_x || map_position_y - y < 0 || map_position_y - y >= Mapsize_y){
             return 0;
         }
+        Debug.Log(mainmap[map_position_y - y, x + map_position_x]);
         return mainmap[map_position_y - y, x + map_position_x];
     }
 
@@ -215,10 +217,11 @@ public class Map : MonoBehaviour {
             GameObject subgo = Instantiate(go) as GameObject;
             subgo.name = "Enemy" + count;
         }
-
-        GameObject subitem = Instantiate(Item, new Vector3(Item_px, Item_py, 0), Quaternion.identity);
-        subitem.name = "Item";
-        subitem.GetComponent<Subgo_ctr>().State_set(Item_px, Item_py);
-        subitem.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+        if (Need_item == true){
+            GameObject subitem = Instantiate(Item, new Vector3(Item_px, Item_py, 0), Quaternion.identity);
+            subitem.name = "Item";
+            subitem.GetComponent<Subgo_ctr>().State_set(Item_px, Item_py);
+            subitem.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+        }
     }
 }
