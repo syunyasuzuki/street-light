@@ -5,9 +5,9 @@ using UnityEngine;
 public class Subgo_ctr : MonoBehaviour {
 
     GameObject map;
-    private bool state = false;
-    private int px;
-    private int py;
+    public bool state = false;
+    public int px;
+    public int py;
 
     public void State_set(int x,int y){
         state = false;
@@ -23,10 +23,12 @@ public class Subgo_ctr : MonoBehaviour {
         if (state == false && map.GetComponent<Map>().Map_state(px,py)!=0){
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
             state = true;
+            Debug.Log("ついた");
         }
-        if (state == true && map.GetComponent<Map>().Map_state((int)transform.position.x,(int)transform.position.y) == 0){
+        if (state == true && map.GetComponent<Map>().Map_state(px,py) == 0){
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
             state = false;
+            Debug.Log("きえた");
         }
     }
 }

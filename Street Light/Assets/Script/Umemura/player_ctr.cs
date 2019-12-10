@@ -12,14 +12,11 @@ public class player_ctr : MonoBehaviour {
     int count;
     Vector3 pos;
     GameObject Map;
-    
+    bool q=true;
 	// Use this for initialization
 	void Start () {
 
         Map = GameObject.Find("MapManager");
-
-        
-        //transform.position = Vector3.zero;
 
     }
 	
@@ -28,14 +25,22 @@ public class player_ctr : MonoBehaviour {
         // ゲームオーバー処理
         if (Map.GetComponent<Map>().P_checker(transform.position.x, transform.position.y) == 1)
         {
-            
+            Invoke("GameOver", 2.0f);
+            q = false;
         }
 
-
-        Move();  // 移動処理
+        if (q)
+        {
+            Move();  // 移動処理
+        }
 
     }
-
+ 
+    void GameOver()
+    {
+        transform.position = Vector3.zero;
+        q = true;
+    }
 
     void Move()
     {
