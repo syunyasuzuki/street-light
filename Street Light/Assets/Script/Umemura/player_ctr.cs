@@ -100,6 +100,8 @@ public class player_ctr : MonoBehaviour {
 
     void FixedUpdate()
     {
-        
+        Rigidbody2D rigid2D = this.GetComponent<Rigidbody2D>();
+        Vector3 force = new Vector3(0.0f, 1.0f, 0.0f);
+        rigid2D.AddForce(force);
     }
 }
