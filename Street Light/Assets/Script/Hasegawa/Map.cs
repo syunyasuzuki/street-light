@@ -29,6 +29,9 @@ public class Map : MonoBehaviour {
     //各ゲームオブジェクトのプレハブを取り込む
     [SerializeField] [Header("使う光のプレハブ")] GameObject[] Light_Prfb = new GameObject[] { };
     [SerializeField] [Header("使う障害物のプレハブ")] GameObject[] Enemy_Prfb = new GameObject[] { };
+    [SerializeField] [Header("ステージの落とし物")] GameObject Item;
+    [SerializeField] [Header("落とし物の落ちてる位置")] int Item_px = 0;
+    [SerializeField] int Item_py = 0;
 
     //------------------------------------------------------------
 
@@ -212,5 +215,10 @@ public class Map : MonoBehaviour {
             GameObject subgo = Instantiate(go) as GameObject;
             subgo.name = "Enemy" + count;
         }
-	}
+
+        GameObject subitem = Instantiate(Item, new Vector3(Item_px, Item_py, 0), Quaternion.identity);
+        subitem.name = "Item";
+        subitem.GetComponent<Subgo_ctr>().State_set(Item_px, Item_py);
+        subitem.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+    }
 }

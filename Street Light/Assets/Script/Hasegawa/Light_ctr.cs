@@ -284,88 +284,90 @@ public class Light_ctr : MonoBehaviour {
                     Light_on();
                 }
             }
-            //光の移動
-            if (Need_Move == true && cut_count % Cut_move == 0){
-                move_count += move_vec;
-                //X
-                if (Move_vec == true ){
-                    //内部数値移動処理
-                    for(int y=0;y < L_scale_y + move_y; y++){
-                        Light_change(ref light_mode[y, 0]);
-                        Light_change(ref light_mode[y, L_scale_x]);
-                    }
-                    if (move_count % 10 == 0){
-                        //反転処理
-                        if (move_count == move_point || move_count == 0){
-                            move_vec *= -1;
+            if (light_flash == true){
+                //光の移動
+                if (Need_Move == true && cut_count % Cut_move == 0){
+                    move_count += move_vec;
+                    //X
+                    if (Move_vec == true){
+                        //内部数値移動処理
+                        for (int y = 0; y < L_scale_y + move_y; y++){
+                            Light_change(ref light_mode[y, 0]);
+                            Light_change(ref light_mode[y, L_scale_x]);
                         }
-                        //枠移動処理
-                        else{
-                            count = 0;
-                            //右向き
-                            if (move_vec == 1){
-                                position_x++;
+                        if (move_count % 10 == 0){
+                            //反転処理
+                            if (move_count == move_point || move_count == 0){
+                                move_vec *= -1;
                             }
-                            //左向き
+                            //枠移動処理
                             else{
-                                count = 1;
-                                position_x--;
-                            }
-                            //配列をクリア
-                            for (int y = 0; y < L_scale_y + move_y; y++){
-                                for (int x = 0; x < L_scale_x + move_x; x++){
-                                    light_mode[y, x] = 0;
+                                count = 0;
+                                //右向き
+                                if (move_vec == 1){
+                                    position_x++;
                                 }
-                            }
-                            //街灯を再設定
-                            for (int y = 0; y < L_scale_y; y++){
-                                for (int x = 0; x < L_scale_x; x++){
-                                    light_mode[y, x + count] = 1;
+                                //左向き
+                                else{
+                                    count = 1;
+                                    position_x--;
+                                }
+                                //配列をクリア
+                                for (int y = 0; y < L_scale_y + move_y; y++){
+                                    for (int x = 0; x < L_scale_x + move_x; x++){
+                                        light_mode[y, x] = 0;
+                                    }
+                                }
+                                //街灯を再設定
+                                for (int y = 0; y < L_scale_y; y++){
+                                    for (int x = 0; x < L_scale_x; x++){
+                                        light_mode[y, x + count] = 1;
+                                    }
                                 }
                             }
                         }
+                        transform.position = new Vector3(L_def_px + Preset * move_count, L_def_py, 0);
                     }
-                    transform.position = new Vector3(L_def_px + Preset * move_count, L_def_py, 0);
-                }
-                //Y
-                else {
-                    //内部数値移動処理
-                    for(int x = 0; x < L_scale_x + move_x; x++){
-                        Light_change(ref light_mode[0, x]);
-                        Light_change(ref light_mode[L_scale_y, x]);
-                    }
-                    if (move_count % 10 == 0){
-                        //反転処理
-                        if (move_count == move_point || move_count == 0){
-                            move_vec *= -1;
+                    //Y
+                    else{
+                        //内部数値移動処理
+                        for (int x = 0; x < L_scale_x + move_x; x++){
+                            Light_change(ref light_mode[0, x]);
+                            Light_change(ref light_mode[L_scale_y, x]);
                         }
-                        //枠移動処理
-                        else{
-                            count = 0;
-                            //上向き
-                            if (move_vec == 1){
-                                count = 1;
-                                position_y++;
+                        if (move_count % 10 == 0){
+                            //反転処理
+                            if (move_count == move_point || move_count == 0){
+                                move_vec *= -1;
                             }
-                            //下向き
+                            //枠移動処理
                             else{
-                                position_y--;
-                            }
-                            //配列をクリア
-                            for (int y = 0; y < L_scale_y + move_y; y++){
-                                for (int x = 0; x < L_scale_x + move_x; x++){
-                                    light_mode[y , x] = 0;
+                                count = 0;
+                                //上向き
+                                if (move_vec == 1){
+                                    count = 1;
+                                    position_y++;
                                 }
-                            }
-                            //街灯を再設定
-                            for(int y = 0; y < L_scale_y; y++){
-                                for(int x = 0; x < L_scale_x; x++){
-                                    light_mode[y + count, x] = 1;
+                                //下向き
+                                else{
+                                    position_y--;
+                                }
+                                //配列をクリア
+                                for (int y = 0; y < L_scale_y + move_y; y++){
+                                    for (int x = 0; x < L_scale_x + move_x; x++){
+                                        light_mode[y, x] = 0;
+                                    }
+                                }
+                                //街灯を再設定
+                                for (int y = 0; y < L_scale_y; y++){
+                                    for (int x = 0; x < L_scale_x; x++){
+                                        light_mode[y + count, x] = 1;
+                                    }
                                 }
                             }
                         }
+                        transform.position = new Vector3(L_def_px, L_def_py + Preset * move_count, 0);
                     }
-                    transform.position = new Vector3(L_def_px, L_def_py + Preset * move_count, 0);
                 }
                 //マップに反映させる
                 for (int y = 0; y < L_scale_y + move_y; y++){
