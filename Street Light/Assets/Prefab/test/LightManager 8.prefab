@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1204392212027000}
+  m_IsPrefabParent: 1
+--- !u!1 &1204392212027000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4135188826172954}
+  - component: {fileID: 114577592601483930}
+  m_Layer: 0
+  m_Name: LightManager 8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4135188826172954
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1204392212027000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114577592601483930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1204392212027000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac95789b3661fbe41a7e687b2c2bddd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  L_scale_x: 1
+  L_scale_y: 3
+  L_def_px: -2
+  L_def_py: 11
+  Need_Move: 1
+  Move_vec: 1
+  Move_drct: 4
+  Cut_move: 2
+  Flashing: 0
+  F_weight: 1
+  Need_power: 0
+  Def_power: 1
+  P_def_px: 3
+  P_def_py: 5
+  Light_single: {fileID: 1468668821097574, guid: 3f1797a5d9333f542a72abbb0ee76a11,
+    type: 2}
+  Power: {fileID: 1123280808415170, guid: 820d152dad969a04f853d32a281c5ffb, type: 2}

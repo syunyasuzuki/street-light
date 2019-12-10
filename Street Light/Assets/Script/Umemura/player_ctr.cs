@@ -8,6 +8,7 @@ public class player_ctr : MonoBehaviour {
 
     [SerializeField] Vector3 SPEED = new Vector3(0.05f, 0.05f);  // プレイヤーの速度調整
 
+    //public GameObject player;
     float alpha = 1.0f;
     int count;
     Vector3 pos;
@@ -15,6 +16,7 @@ public class player_ctr : MonoBehaviour {
     bool q=true;
 	// Use this for initialization
 	void Start () {
+        //getcolor = GetComponent<SpriteRenderer>().color;
 
         Map = GameObject.Find("MapManager");
 
@@ -25,24 +27,32 @@ public class player_ctr : MonoBehaviour {
         // ゲームオーバー処理
         if (Map.GetComponent<Map>().P_checker(transform.position.x, transform.position.y) == 1)
         {
+
             Invoke("GameOver", 2.0f);
+            gameObject.SetActive(false);
             q = false;
+        //    alpha -= 0.05f;
+        //    player.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, alpha);
+        //    if (alpha <= 0.0f)
+        //    {
+        //        transform.position = Vector3.zero;
+        //    }
         }
 
         if (q)
         {
             Move();  // 移動処理
         }
-
-    }
- 
-    void GameOver()
-    {
-        transform.position = Vector3.zero;
-        q = true;
     }
 
-    void Move()
+        void GameOver()
+        {
+            transform.position = Vector3.zero;
+            gameObject.SetActive(true);
+            q = true;
+        }
+
+        void Move()
     {
         // 現在位置をpositionに代入
         Vector3 Position = transform.position;
