@@ -1,19 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LaodDeta : MonoBehaviour {
 
-	// Use this for initialization
-	void Start ()
+  [SerializeField] public static float time;
+      private Text text;
+    // Use this for initialization
+    void Start()
     {
-        Debug.Log(Time_ctr.minute);
-        Debug.Log(Time_ctr.seconds);
-        Time_ctr loadScene = FindObjectOfType<Time_ctr>();
-    }
+
+    }  
+
+
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        PlayerPrefs.SetFloat("time", time);
+    }
 }
