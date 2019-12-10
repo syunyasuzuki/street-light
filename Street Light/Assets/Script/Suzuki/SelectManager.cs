@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class TitleManager : Button_ctr
+public class SelectManager : Button_ctr
 {
 
 	// Use this for initialization

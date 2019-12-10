@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//継承用スクリプト
+
 public class Button_ctr : MonoBehaviour
 {
 
