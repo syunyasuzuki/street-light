@@ -22,14 +22,4 @@ public class GameManager : Button_ctr
             Time.timeScale = 0.0f;
         }
 	}
-
-    public void Go_Title()
-    {
-        base.Go_Title();
-    }
-
-    public void Go_Select()
-    {
-        base.Go_select();
-    }
 }
