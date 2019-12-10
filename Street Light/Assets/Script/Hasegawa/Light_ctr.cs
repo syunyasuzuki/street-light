@@ -303,6 +303,7 @@ public class Light_ctr : MonoBehaviour {
                             if (move_count == move_point || move_count == 0){
                                 move_stoper = Stop_time;
                                 move_vec *= -1;
+                                /*
                                 count = 0;
                                 if (move_vec == -1){
                                     count = 1;
@@ -317,6 +318,7 @@ public class Light_ctr : MonoBehaviour {
                                         light_mode[y, x + count] = 1;
                                     }
                                 }
+                                */
                             }
                             //枠移動処理
                             else{

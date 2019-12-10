@@ -57,7 +57,8 @@ public class Map : MonoBehaviour {
     }
 
     //プレイヤーから座標をもらって光に当たってない場合1を返す
-    public int P_checker(float x,float y){
+    public int P_checker(float x, float y)
+    {
         //マップでの位置番号を求める
         int Px = (int)Mathf.Round(x);//マップ番号X
         int Py = (int)Mathf.Round(y);//マップ番号Y
@@ -67,8 +68,10 @@ public class Map : MonoBehaviour {
         float sub_y = y - Py;//座標0に合わせたX
 
         //正規化した座標から光に当たっているかどうかを求める
-        if (map_position_y - Py < Mapsize_y && map_position_y - Py >= 0){
-            switch (mainmap[map_position_y - Py, Px + map_position_x]){
+        if (map_position_y - Py < Mapsize_y && map_position_y - Py >= 0)
+        {
+            switch (mainmap[map_position_y - Py, Px + map_position_x])
+            {
                 //すべて光
                 case 1: return 0;
                 //右によっていく
@@ -186,16 +189,16 @@ public class Map : MonoBehaviour {
             }
             return 1;
         }
-        else{
+        else
+        {
             if (Py == Mapsize_y && Px == 0) { return 0; }
             else { return 1; }
         }
     }
-
     //-----------------------------------------------------------
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
 		//mainmapを0クリアする（すべて暗闇にする）
         for(int y = 0; y < Mapsize_y; y++){
