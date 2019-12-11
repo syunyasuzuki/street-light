@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 27254064eaebed04fae76b93ab1d8c5e
+  productGUID: ac5e85db730fe044f853572b16dca09b
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -630,12 +630,11 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled:
-    UNet: 1
+  cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 0c9a5e6e-25a7-4957-857e-0823edbe3d2b
-  projectName: Street Light (1)
+  cloudProjectId: 4b5bf41f-24ed-43b4-a098-165bc3d7372e
+  projectName: Street Light (2)
   organizationId: kio0404
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
