@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 4cb8846aa8c98ae4980c09cea7f2c455
-timeCreated: 1575957557
+guid: a11b8f8b8384a974491e35af2c14ed45
+timeCreated: 1576424102
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Text_Image2_0
-    21300002: Text_Image2_1
-    21300004: Text_Image2_2
-    21300006: Text_Image2_3
+    21300000: Text_Image_0
+    21300002: Text_Image_1
+    21300004: Text_Image_2
+    21300006: Text_Image_3
+    21300008: Text_Image_4
+    21300010: Text_Image_5
+    21300012: Text_Image_6
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -115,57 +118,99 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Text_Image2_0
+      name: Text_Image_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
+        y: 91
+        width: 72
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Text_Image_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 91
+        width: 102
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Text_Image_2
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 91
+        width: 81
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Text_Image_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 43
+        width: 79
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Text_Image_4
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 43
+        width: 114
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Text_Image_5
+      rect:
+        serializedVersion: 2
+        x: 6
         y: 0
         width: 184
         height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Text_Image2_1
+      name: Text_Image_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 42
-        width: 72
-        height: 36
+        x: 198
+        y: 0
+        width: 44
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Text_Image2_2
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 42
-        width: 102
-        height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Text_Image2_3
-      rect:
-        serializedVersion: 2
-        x: 195
-        y: 42
-        width: 81
-        height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
