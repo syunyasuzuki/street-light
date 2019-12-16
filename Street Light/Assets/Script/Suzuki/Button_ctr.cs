@@ -34,6 +34,22 @@ public class Button_ctr : MonoBehaviour
         SceneManager.LoadScene("TitleScene");
     }
 
+    //ボタンを押したら呼び出すメソッド
+    public void Back()
+    {
+        //ゲームに戻る
+        GetComponent<GameManager>().menu.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
+    //ボタンを押したら呼び出すメソッド
+    //public void menu()
+    //{
+    //    //メニューを表示
+    //    GetComponent<GameManager>().menu.SetActive(true);
+    //    Time.timeScale = 0.0f;
+    //}
+
     //-----------------------GameScene---------------------------//
     //ボタンを押したら呼び出すメソッド
     public void Game1()
