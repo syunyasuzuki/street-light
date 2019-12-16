@@ -499,7 +499,7 @@ public class Light_ctr : MonoBehaviour
                         Map.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x, L_def_py + position_y + y, light_mode[y, x]);
                     }
                 }
-                Debug.Log(Map.GetComponent<Map>().Map_state(L_def_px, L_def_py));
+                //Debug.Log(Map.GetComponent<Map>().Map_state(L_def_px, L_def_py));
             }
         }
     }

@@ -111,7 +111,7 @@ public class player_ctr : MonoBehaviour {
     {
         if (col.gameObject.tag == "House"&& i == true)
         {
-            SceneManager.LoadScene("GameClearScene");
+            Debug.Log("おうち入った");
         }
         if (col.gameObject.tag == ("switch"))
         {
@@ -120,6 +120,7 @@ public class player_ctr : MonoBehaviour {
         if (col.gameObject.tag == ("key"))
         {
             i = true;
+            Destroy(col.gameObject);
         }
     }
 
