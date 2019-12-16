@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : Button_ctr
 {
     public GameObject menu;
+    public GameObject player;
 
 	// Use this for initialization
 	void Start ()
@@ -20,6 +21,7 @@ public class GameManager : Button_ctr
         {
             menu.SetActive(true);
             Time.timeScale = 0.0f;
+            player.GetComponent<player_ctr>().enabled = false;
         }
 	}
 }

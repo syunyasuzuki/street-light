@@ -25,6 +25,7 @@ public class Button_ctr : MonoBehaviour
     {
         //セレクトシーンに移動
         SceneManager.LoadScene("SelectScene");
+        Time.timeScale = 1.0f;
     }
 
     //ボタンを押したら呼び出すメソッド
@@ -32,6 +33,7 @@ public class Button_ctr : MonoBehaviour
     {
         //タイトルシーンに移動
         SceneManager.LoadScene("TitleScene");
+        Time.timeScale = 1.0f;
     }
 
     //ボタンを押したら呼び出すメソッド
@@ -39,6 +41,7 @@ public class Button_ctr : MonoBehaviour
     {
         //ゲームに戻る
         GetComponent<GameManager>().menu.SetActive(false);
+        GetComponent<GameManager>().player.GetComponent<player_ctr>().enabled = true;
         Time.timeScale = 1.0f;
     }
 
