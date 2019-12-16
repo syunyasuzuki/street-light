@@ -31,9 +31,12 @@ public class Map : MonoBehaviour
     [SerializeField] [Header("使う光のプレハブ")] GameObject[] Light_Prfb = new GameObject[] { };
     [SerializeField] [Header("使う障害物のプレハブ")] GameObject[] Enemy_Prfb = new GameObject[] { };
     [SerializeField] [Header("ステージの落とし物")] GameObject Item;
+    [SerializeField] [Header("鍵")] GameObject Key;
     [SerializeField] [Header("落とし物の落ちてる位置")] int Item_px = 0;
     [SerializeField] int Item_py = 0;
     [SerializeField] bool Need_item = false;
+    [SerializeField] [Header("鍵を置く位置")] int Key_px;
+    [SerializeField] int Key_py;
 
     //------------------------------------------------------------
 
