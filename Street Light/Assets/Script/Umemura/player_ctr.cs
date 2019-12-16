@@ -27,13 +27,12 @@ public class player_ctr : MonoBehaviour {
         {
             if (q == true)
             {
-                Invoke("GameOver", 1.0f);
                 q = false;
             }
         }
-        if (false)
+        if (q == false)
         {
-            alpha -= 0.05f;
+            alpha -= 0.02f;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, alpha);
             if (alpha <= 0.0f)
             {
@@ -122,12 +121,5 @@ public class player_ctr : MonoBehaviour {
     public int death()
     {
         return count;
-    }
-
-    void FixedUpdate()
-    {
-        //Rigidbody2D rigid2D = this.GetComponent<Rigidbody2D>();
-        //Vector3 force = new Vector3(0.0f, 1.0f, 0.0f);
-        //rigid2D.AddForce(force);
     }
 }
