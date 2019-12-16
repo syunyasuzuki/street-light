@@ -4,7 +4,8 @@ using UnityEngine;
 
 //●＝未完成部分あり
 
-public class Map : MonoBehaviour {
+public class Map : MonoBehaviour
+{
 
     //------------------このスクリプトのみで使うもの--------------
 
@@ -15,7 +16,7 @@ public class Map : MonoBehaviour {
     private const int Mapsize_x = 11;
     //マップの大きさY（3以上ならなんでもOK）
     private const int Mapsize_y = 17;
-    
+
     //マップ（0 = 暗闇）
     int[,] mainmap = new int[Mapsize_y, Mapsize_x];
 
@@ -32,30 +33,37 @@ public class Map : MonoBehaviour {
     [SerializeField] [Header("ステージの落とし物")] GameObject Item;
     [SerializeField] [Header("落とし物の落ちてる位置")] int Item_px = 0;
     [SerializeField] int Item_py = 0;
+    [SerializeField] bool Need_item = false;
 
     //------------------------------------------------------------
 
     //------------------他からアクセスできるもの------------------
 
     //マップの書き変え
-    public void Rewrite_map(int px,int py,int num){
+    public void Rewrite_map(int px, int py, int num)
+    {
+        Debug.Log("計算した値　X：" + (px + map_position_x) + "　Y:" + (map_position_y - py));
         //範囲外をはじく
-        if (px + map_position_x < Mapsize_x || (map_position_y - py < Mapsize_y && map_position_y - py >= 0)){
+        if ((px + map_position_x >= 0 && px + map_position_x < Mapsize_x) || (map_position_y - py >= 0 && map_position_y - py < Mapsize_y))
+        {
             mainmap[map_position_y - py, px + map_position_x] = num;
         }
-        
+
     }
 
     //マップの状態を知る
-    public int Map_state(int x,int y){
-        if (x+map_position_x < 0 || x + map_position_x >= Mapsize_x || map_position_y - y < 0 || map_position_y - y >= Mapsize_y){
-            return 0;
+    public int Map_state(int x, int y)
+    {
+        if ((x + map_position_x >= 0 && x + map_position_x < Mapsize_x) || (map_position_y - y >= 0 && map_position_y - y < Mapsize_y))
+        {
+            return mainmap[map_position_y - y, x + map_position_x];
         }
-        return mainmap[map_position_y - y, x + map_position_x];
+        return 0;
     }
 
     //プレイヤーから座標をもらって光に当たってない場合1を返す
-    public int P_checker(float x,float y){
+    public int P_checker(float x, float y)
+    {
         //マップでの位置番号を求める
         int Px = (int)Mathf.Round(x);//マップ番号X
         int Py = (int)Mathf.Round(y);//マップ番号Y
@@ -65,8 +73,10 @@ public class Map : MonoBehaviour {
         float sub_y = y - Py;//座標0に合わせたX
 
         //正規化した座標から光に当たっているかどうかを求める
-        if (map_position_y - Py < Mapsize_y && map_position_y - Py >= 0){
-            switch (mainmap[map_position_y - Py, Px + map_position_x]){
+        if (map_position_y - Py < Mapsize_y && map_position_y - Py >= 0)
+        {
+            switch (mainmap[map_position_y - Py, Px + map_position_x])
+            {
                 //すべて光
                 case 1: return 0;
                 //右によっていく
@@ -184,7 +194,8 @@ public class Map : MonoBehaviour {
             }
             return 1;
         }
-        else{
+        else
+        {
             if (Py == Mapsize_y && Px == 0) { return 0; }
             else { return 1; }
         }
@@ -192,33 +203,40 @@ public class Map : MonoBehaviour {
 
     //-----------------------------------------------------------
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
 
-		//mainmapを0クリアする（すべて暗闇にする）
-        for(int y = 0; y < Mapsize_y; y++){
-            for(int x = 0; x < Mapsize_x; x++){
+        //mainmapを0クリアする（すべて暗闇にする）
+        for (int y = 0; y < Mapsize_y; y++)
+        {
+            for (int x = 0; x < Mapsize_x; x++)
+            {
                 mainmap[y, x] = 0;
             }
         }
 
         count = 0;
         //ライト、障害物を配置する
-        foreach(GameObject go in Light_Prfb){
+        foreach (GameObject go in Light_Prfb)
+        {
             count++;
             GameObject subgo = Instantiate(go) as GameObject;
             subgo.name = "Light" + count;
         }
         count = 0;
-        foreach(GameObject go in Enemy_Prfb){
+        foreach (GameObject go in Enemy_Prfb)
+        {
             count++;
             GameObject subgo = Instantiate(go) as GameObject;
             subgo.name = "Enemy" + count;
         }
-
-        GameObject subitem = Instantiate(Item, new Vector3(Item_px, Item_py, 0), Quaternion.identity);
-        subitem.name = "Item";
-        subitem.GetComponent<Subgo_ctr>().State_set(Item_px, Item_py);
-        subitem.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+        if (Need_item == true)
+        {
+            GameObject subitem = Instantiate(Item, new Vector3(Item_px, Item_py, 0), Quaternion.identity);
+            subitem.name = "Item";
+            subitem.GetComponent<Subgo_ctr>().State_set(Item_px, Item_py);
+            subitem.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+        }
     }
 }
