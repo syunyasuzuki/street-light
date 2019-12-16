@@ -245,7 +245,7 @@ public class Light_ctr : MonoBehaviour
             if (Move_vec == true)
             {
                 count = 0;
-                if (0 > move_point)
+                if (move_vec == -1)
                 {
                     count = 1;
                 }
@@ -261,7 +261,7 @@ public class Light_ctr : MonoBehaviour
             else
             {
                 count = 0;
-                if (move_point < 0)
+                if (move_vec == 1)
                 {
                     count = 1;
                 }
@@ -457,6 +457,10 @@ public class Light_ctr : MonoBehaviour
                                 //上向き
                                 if (move_vec == 1)
                                 {
+                                    for(int x = 0; x < L_scale_x + move_x; x++)
+                                    {
+
+                                    }
                                     count = 1;
                                     position_y++;
                                 }
@@ -495,6 +499,7 @@ public class Light_ctr : MonoBehaviour
                         Map.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x, L_def_py + position_y + y, light_mode[y, x]);
                     }
                 }
+                Debug.Log(Map.GetComponent<Map>().Map_state(L_def_px, L_def_py));
             }
         }
     }

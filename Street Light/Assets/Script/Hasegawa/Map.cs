@@ -241,5 +241,7 @@ public class Map : MonoBehaviour
             subitem.GetComponent<Subgo_ctr>().State_set(Item_px, Item_py);
             subitem.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         }
+        GameObject keyset = Instantiate(Key, new Vector3(Key_px, Key_py, 0), Quaternion.identity);
+        keyset.name = "Home_key";
     }
 }
