@@ -13,6 +13,7 @@ public class player_ctr : MonoBehaviour {
     Vector3 pos;
     GameObject Map;
     bool q=true;
+    bool i = false;
 	// Use this for initialization
 	void Start () {
 
@@ -108,13 +109,17 @@ public class player_ctr : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "House")
+        if (col.gameObject.tag == "House"&& i == true)
         {
             SceneManager.LoadScene("GameClearScene");
         }
         if (col.gameObject.tag == ("switch"))
         {
             col.GetComponent<Power_ctr>().Switch_onoff();
+        }
+        if (col.gameObject.tag == ("key"))
+        {
+            i = true;
         }
     }
 
