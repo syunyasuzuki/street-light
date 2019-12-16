@@ -13,6 +13,7 @@ public class player_ctr : MonoBehaviour {
     Vector3 pos;
     GameObject Map;
     bool q=true;
+    bool i = false;
 	// Use this for initialization
 	void Start () {
 
@@ -27,13 +28,12 @@ public class player_ctr : MonoBehaviour {
         {
             if (q == true)
             {
-                Invoke("GameOver", 1.0f);
                 q = false;
             }
         }
-        if (false)
+        if (q == false)
         {
-            alpha -= 0.05f;
+            alpha -= 0.02f;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, alpha);
             if (alpha <= 0.0f)
             {
@@ -109,7 +109,7 @@ public class player_ctr : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "House")
+        if (col.gameObject.tag == "House"&& i == true)
         {
             SceneManager.LoadScene("GameClearScene");
         }
@@ -117,17 +117,14 @@ public class player_ctr : MonoBehaviour {
         {
             col.GetComponent<Power_ctr>().Switch_onoff();
         }
+        if (col.gameObject.tag == ("key"))
+        {
+            i = true;
+        }
     }
 
     public int death()
     {
         return count;
-    }
-
-    void FixedUpdate()
-    {
-        //Rigidbody2D rigid2D = this.GetComponent<Rigidbody2D>();
-        //Vector3 force = new Vector3(0.0f, 1.0f, 0.0f);
-        //rigid2D.AddForce(force);
     }
 }
