@@ -25,8 +25,23 @@ public class player_ctr : MonoBehaviour {
         // ゲームオーバー処理
         if (Map.GetComponent<Map>().P_checker(transform.position.x, transform.position.y) == 1)
         {
-            Invoke("GameOver", 2.0f);
-            q = false;
+            if (q == true)
+            {
+                Invoke("GameOver", 1.0f);
+                q = false;
+            }
+        }
+        if (false)
+        {
+            alpha -= 0.05f;
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, alpha);
+            if (alpha <= 0.0f)
+            {
+                transform.position = Vector3.zero;
+                alpha = 1.0f;
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, alpha);
+                q = true;
+            }
         }
 
         if (q)
