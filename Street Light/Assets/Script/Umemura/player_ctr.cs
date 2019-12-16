@@ -25,8 +25,22 @@ public class player_ctr : MonoBehaviour {
         // ゲームオーバー処理
         if (Map.GetComponent<Map>().P_checker(transform.position.x, transform.position.y) == 1)
         {
-            Invoke("GameOver", 2.0f);
-            q = false;
+            if (q == true)
+            {
+                q = false;
+            }
+        }
+        if (q == false)
+        {
+            alpha -= 0.02f;
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, alpha);
+            if (alpha <= 0.0f)
+            {
+                transform.position = Vector3.zero;
+                alpha = 1.0f;
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, alpha);
+                q = true;
+            }
         }
 
         if (q)
@@ -107,12 +121,5 @@ public class player_ctr : MonoBehaviour {
     public int death()
     {
         return count;
-    }
-
-    void FixedUpdate()
-    {
-        //Rigidbody2D rigid2D = this.GetComponent<Rigidbody2D>();
-        //Vector3 force = new Vector3(0.0f, 1.0f, 0.0f);
-        //rigid2D.AddForce(force);
     }
 }
