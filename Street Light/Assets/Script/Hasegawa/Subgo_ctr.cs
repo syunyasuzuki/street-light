@@ -10,13 +10,13 @@ public class Subgo_ctr : MonoBehaviour {
     int py;
 
     public void State_set(int x,int y){
-        state = false;
         px = x;
         py = y;
     }
 
     void Start(){
         map = GameObject.Find("MapManager");
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
     }
 
     void Update(){

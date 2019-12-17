@@ -24,11 +24,11 @@ public class Enemy_ctr : MonoBehaviour {
             for(int x = 0; x < E_scale_x; x++){
                 count++;
                 GameObject subgo = Instantiate(Enemy_single) as GameObject;
-                subgo.name = this.gameObject.name + "-" + count;
+                subgo.name = gameObject.name + "-" + count;
                 subgo.GetComponent<Subgo_ctr>().State_set(E_def_px + x, E_def_py + y);
-                subgo.transform.parent = this.gameObject.transform;
+                subgo.transform.parent = gameObject.transform;
                 subgo.transform.localPosition = new Vector3(x, y, 0);
-                subgo.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                subgo.GetComponent<Subgo_ctr>().State_set(E_def_px + x, E_def_py + y);
             }
         }
 	}
