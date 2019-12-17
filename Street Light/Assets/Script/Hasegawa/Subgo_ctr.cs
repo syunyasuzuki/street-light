@@ -5,9 +5,9 @@ using UnityEngine;
 public class Subgo_ctr : MonoBehaviour {
 
     GameObject map;
-    public bool state = false;
-    public int px;
-    public int py;
+    bool state = false;
+    int px;
+    int py;
 
     public void State_set(int x,int y){
         state = false;

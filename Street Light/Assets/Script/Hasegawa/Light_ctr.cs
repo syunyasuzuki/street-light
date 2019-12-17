@@ -261,7 +261,7 @@ public class Light_ctr : MonoBehaviour
             else
             {
                 count = 0;
-                if (move_vec == 1)
+                if (move_vec == -1)
                 {
                     count = 1;
                 }
@@ -386,11 +386,18 @@ public class Light_ctr : MonoBehaviour
                                 //右向き
                                 if (move_vec == 1)
                                 {
+                                    for(int y = 0; y < L_scale_y + move_y; y++){
+                                        Map.GetComponent<Map>().Rewrite_map(L_def_px + position_x, y, 0);
+                                    }
                                     position_x++;
                                 }
                                 //左向き
                                 else
                                 {
+                                    for(int y = 0; y < L_scale_y + move_y; y++)
+                                    {
+                                        Map.GetComponent<Map>().Rewrite_map(L_def_px + position_x + L_scale_x, y, 0);
+                                    }
                                     count = 1;
                                     position_x--;
                                 }
@@ -431,10 +438,11 @@ public class Light_ctr : MonoBehaviour
                                 move_stoper = Stop_time;
                                 move_vec *= -1;
                                 count = 0;
-                                if (move_vec == 1)
+                                if (move_vec == -1)
                                 {
                                     count = 1;
                                 }
+                                //配列初期化
                                 for (int y = 0; y < L_scale_y + move_y; y++)
                                 {
                                     for (int x = 0; x < L_scale_x + move_x; x++)
@@ -442,6 +450,7 @@ public class Light_ctr : MonoBehaviour
                                         light_mode[y, x] = 0;
                                     }
                                 }
+                                //配列再設定
                                 for (int y = 0; y < L_scale_y; y++)
                                 {
                                     for (int x = 0; x < L_scale_x; x++)
@@ -457,16 +466,21 @@ public class Light_ctr : MonoBehaviour
                                 //上向き
                                 if (move_vec == 1)
                                 {
+                                    //書き換えきれない部分を前もって書き換え
                                     for(int x = 0; x < L_scale_x + move_x; x++)
                                     {
-
+                                        Map.GetComponent<Map>().Rewrite_map(x, L_def_py + position_y, 0);
                                     }
-                                    count = 1;
                                     position_y++;
                                 }
                                 //下向き
                                 else
                                 {
+                                    for(int x = 0; x < L_scale_x + move_x; x++)
+                                    {
+                                        Map.GetComponent<Map>().Rewrite_map(x, L_def_py + position_y + L_scale_y, 0);
+                                    }
+                                    count = 1;
                                     position_y--;
                                 }
                                 //配列をクリア
@@ -489,17 +503,16 @@ public class Light_ctr : MonoBehaviour
                         }
                         transform.position = new Vector3(L_def_px, L_def_py + Preset * move_count, 0);
                     }
-                }
-                //マップに反映させる
-                for (int y = 0; y < L_scale_y + move_y; y++)
-                {
-                    for (int x = 0; x < L_scale_x + move_x; x++)
+                    //マップに反映させる
+                    for (int y = 0; y < L_scale_y + move_y; y++)
                     {
-
-                        Map.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x, L_def_py + position_y + y, light_mode[y, x]);
+                        for (int x = 0; x < L_scale_x + move_x; x++)
+                        {
+                            Map.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x, L_def_py + position_y + y, light_mode[y, x]);
+                            Debug.Log("渡した値" + light_mode[y, x]);
+                        }
                     }
                 }
-                //Debug.Log(Map.GetComponent<Map>().Map_state(L_def_px, L_def_py));
             }
         }
     }
