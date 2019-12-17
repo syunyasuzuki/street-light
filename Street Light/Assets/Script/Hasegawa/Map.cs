@@ -45,7 +45,7 @@ public class Map : MonoBehaviour
     //マップの書き変え
     public void Rewrite_map(int px, int py, int num)
     {
-        Debug.Log("計算した値　X：" + (px + map_position_x) + "　Y:" + (map_position_y - py));
+        //Debug.Log("計算した値　X：" + (px + map_position_x) + "　Y:" + (map_position_y - py));
         //範囲外をはじく
         if ((px + map_position_x >= 0 && px + map_position_x < Mapsize_x) || (map_position_y - py >= 0 && map_position_y - py < Mapsize_y))
         {
