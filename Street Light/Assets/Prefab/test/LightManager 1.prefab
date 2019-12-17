@@ -51,20 +51,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac95789b3661fbe41a7e687b2c2bddd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  L_scale_x: 3
-  L_scale_y: 1
+  L_scale_x: 1
+  L_scale_y: 2
   L_def_px: -1
   L_def_py: 1
   Need_Move: 1
-  Move_vec: 1
+  Move_vec: 0
   Move_drct: 2
   Cut_move: 4
   Flashing: 0
   F_weight: 2
   Need_power: 0
   Def_power: 1
-  P_def_px: 3
-  P_def_py: 5
+  P_def_px: -1
+  P_def_py: 0
   Light_single: {fileID: 1468668821097574, guid: 3f1797a5d9333f542a72abbb0ee76a11,
     type: 2}
   Power: {fileID: 1123280808415170, guid: 820d152dad969a04f853d32a281c5ffb, type: 2}
