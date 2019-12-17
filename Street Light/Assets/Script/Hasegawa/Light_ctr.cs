@@ -509,7 +509,7 @@ public class Light_ctr : MonoBehaviour
                         for (int x = 0; x < L_scale_x + move_x; x++)
                         {
                             Map.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x, L_def_py + position_y + y, light_mode[y, x]);
-                            Debug.Log("渡した値" + light_mode[y, x]);
+                            //Debug.Log("渡した値" + light_mode[y, x]);
                         }
                     }
                 }
