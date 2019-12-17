@@ -8,6 +8,7 @@ public class player_ctr : MonoBehaviour {
 
     [SerializeField] Vector3 SPEED = new Vector3(0.05f, 0.05f);  // プレイヤーの速度調整
 
+    Animator anima;
     float alpha = 1.0f;
     int count;
     Vector3 pos;
@@ -18,6 +19,7 @@ public class player_ctr : MonoBehaviour {
 	void Start () {
 
         Map = GameObject.Find("MapManager");
+        anima = GetComponent<Animator>();
 
     }
 	
@@ -64,42 +66,46 @@ public class player_ctr : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.UpArrow)||Input.GetKey("w"))
         {
-
+            anima.SetTrigger("front");
             // 代入したPositionに対して加算減算を行う
             Position.y += SPEED.y;
 
             float z = 0;                                           // wを押すと前を向く
-            this.transform.rotation = Quaternion.Euler(0, 0, z);   // 進む向きを変える
+            //this.transform.rotation = Quaternion.Euler(0, z, 0);   // 進む向きを変える
 
         }
         else if (Input.GetKey(KeyCode.DownArrow)||Input.GetKey("s"))
         {
-
+            anima.SetTrigger("back");
             // 代入したPositionに対して加算減算を行う
             Position.y -= SPEED.y;
 
             float z = 180;                                         // sを押すと後ろを向く
-            this.transform.rotation = Quaternion.Euler(0, 0, z);   // 進む向きを変える
+            //this.transform.rotation = Quaternion.Euler(0, z, 0);   // 進む向きを変える
 
         }
         else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
         {
-
+            anima.SetTrigger("right");
             // 代入したPositionに対して加算減算を行う
             Position.x -= SPEED.x;
 
             float z = 90;                                          // aを押すと左を向く
-            this.transform.rotation = Quaternion.Euler(0, 0, z);   // 進む向きを変える
+            //this.transform.rotation = Quaternion.Euler(z, 0, 0);   // 進む向きを変える
 
         }
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
         {
-
+            anima.SetTrigger("left");
             // 代入したPositionに対して加算減算を行う
             Position.x += SPEED.x;
 
             float z = -90;                                        // dを押したら右を向く
-            this.transform.rotation = Quaternion.Euler(0, 0, z);  // 進む向きを変える
+            //this.transform.rotation = Quaternion.Euler(z, 0, 0);  // 進む向きを変える
+        }
+        else
+        { 
+            anima.SetTrigger("wait");
         }
 
         // 現在の位置に加算減算を行ったPositionを代入する
