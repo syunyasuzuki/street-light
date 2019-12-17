@@ -18,7 +18,7 @@ public class player_ctr : MonoBehaviour {
 	void Start () {
 
         Map = GameObject.Find("MapManager");
-
+   
     }
 	
 	// Update is called once per frame
@@ -71,6 +71,7 @@ public class player_ctr : MonoBehaviour {
             float z = 0;                                           // wを押すと前を向く
             this.transform.rotation = Quaternion.Euler(0, 0, z);   // 進む向きを変える
 
+
         }
         else if (Input.GetKey(KeyCode.DownArrow)||Input.GetKey("s"))
         {
@@ -91,6 +92,7 @@ public class player_ctr : MonoBehaviour {
             float z = 90;                                          // aを押すと左を向く
             this.transform.rotation = Quaternion.Euler(0, 0, z);   // 進む向きを変える
 
+            
         }
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
         {
@@ -100,6 +102,8 @@ public class player_ctr : MonoBehaviour {
 
             float z = -90;                                        // dを押したら右を向く
             this.transform.rotation = Quaternion.Euler(0, 0, z);  // 進む向きを変える
+
+           
         }
 
         // 現在の位置に加算減算を行ったPositionを代入する
