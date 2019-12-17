@@ -17,10 +17,10 @@ public class camera_ctr : MonoBehaviour {
 	void Update () {
 
         // プレイヤーの座標を取得
-        Vector3 playerPos = this.player.transform.position;
+        Vector2 playerPos = this.player.transform.position;
 
         // y座標だけプレイヤーを追従
-        transform.position = new Vector3(transform.position.x, playerPos.y,transform.position.z);
+        transform.position = new Vector2(transform.position.x, playerPos.y);
 		
 	}
 }
