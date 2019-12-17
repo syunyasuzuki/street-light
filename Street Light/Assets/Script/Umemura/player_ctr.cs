@@ -8,7 +8,7 @@ public class player_ctr : MonoBehaviour {
 
     [SerializeField] Vector3 SPEED = new Vector3(0.05f, 0.05f);  // プレイヤーの速度調整
 
-    //Animator anima;
+    Animator anima;
     float alpha = 1.0f;
     int count;
     Vector3 pos;
@@ -19,7 +19,7 @@ public class player_ctr : MonoBehaviour {
 	void Start () {
 
         Map = GameObject.Find("MapManager");
-        //anima = GetComponent<Animator>();
+        anima = GetComponent<Animator>();
 
     }
 	
@@ -66,7 +66,7 @@ public class player_ctr : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.UpArrow)||Input.GetKey("w"))
         {
-            //anima.SetTrigger("front");
+            anima.SetTrigger("front");
             // 代入したPositionに対して加算減算を行う
             Position.y += SPEED.y;
 
@@ -76,7 +76,7 @@ public class player_ctr : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.DownArrow)||Input.GetKey("s"))
         {
-            //anima.SetTrigger("back");
+            anima.SetTrigger("back");
             // 代入したPositionに対して加算減算を行う
             Position.y -= SPEED.y;
 
@@ -86,7 +86,7 @@ public class player_ctr : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
         {
-            //anima.SetTrigger("right");
+            anima.SetTrigger("right");
             // 代入したPositionに対して加算減算を行う
             Position.x -= SPEED.x;
 
@@ -96,17 +96,17 @@ public class player_ctr : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
         {
-            //anima.SetTrigger("left");
+            anima.SetTrigger("left");
             // 代入したPositionに対して加算減算を行う
             Position.x += SPEED.x;
 
             float z = -90;                                        // dを押したら右を向く
             //this.transform.rotation = Quaternion.Euler(z, 0, 0);  // 進む向きを変える
         }
-        //else
-        //{ 
-        //    anima.SetTrigger("wait");
-        //}
+        else
+        {
+            anima.SetTrigger("wait");
+        }
 
         // 現在の位置に加算減算を行ったPositionを代入する
         transform.position = Position;
