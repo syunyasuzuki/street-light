@@ -111,7 +111,9 @@ public class player_ctr : MonoBehaviour {
     {
         if (col.gameObject.tag == "House"&& i == true)
         {
-            Debug.Log("おうち入った");
+            //Debug.Log("おうち入った");
+            ClearManager.Clear_check = true;
+
         }
         if (col.gameObject.tag == ("switch"))
         {
