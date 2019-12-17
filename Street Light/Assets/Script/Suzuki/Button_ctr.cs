@@ -59,6 +59,7 @@ public class Button_ctr : MonoBehaviour
     {
         //ステージ1-1に移動
         SceneManager.LoadScene("Stage1");
+        Time.timeScale = 1.0f;
     }
 
     //ボタンを押したら呼び出すメソッド
@@ -66,6 +67,7 @@ public class Button_ctr : MonoBehaviour
     {
         //ステージ1-2に移動
         SceneManager.LoadScene("Stage2");
+        Time.timeScale = 1.0f;
     }
 
     //ボタンを押したら呼び出すメソッド
@@ -73,6 +75,7 @@ public class Button_ctr : MonoBehaviour
     {
         //ステージ1-3に移動
         SceneManager.LoadScene("Stage3");
+        Time.timeScale = 1.0f;
     }
     //--------------------------------------------------------------//
 }
