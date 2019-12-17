@@ -53,3 +53,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Light_Prfb: []
   Enemy_Prfb: []
+  Item: {fileID: 0}
+  Key: {fileID: 1605072041282398, guid: e4de261f1bb3d4a4b8308585b01266f2, type: 2}
+  Item_px: 0
+  Item_py: 0
+  Need_item: 0
+  Key_px: 0
+  Key_py: 0
