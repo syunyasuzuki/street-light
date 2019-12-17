@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   L_scale_x: 3
-  L_scale_y: 1
+  L_scale_y: 10
   L_def_px: -1
   L_def_py: 0
   Need_Move: 0

@@ -45,7 +45,7 @@ public class Map : MonoBehaviour
     //マップの書き変え
     public void Rewrite_map(int px, int py, int num)
     {
-        Debug.Log("計算した値　X：" + (px + map_position_x) + "　Y:" + (map_position_y - py));
+        //Debug.Log("計算した値　X：" + (px + map_position_x) + "　Y:" + (map_position_y - py));
         //範囲外をはじく
         if ((px + map_position_x >= 0 && px + map_position_x < Mapsize_x) || (map_position_y - py >= 0 && map_position_y - py < Mapsize_y))
         {
@@ -239,9 +239,9 @@ public class Map : MonoBehaviour
             GameObject subitem = Instantiate(Item, new Vector3(Item_px, Item_py, 0), Quaternion.identity);
             subitem.name = "Item";
             subitem.GetComponent<Subgo_ctr>().State_set(Item_px, Item_py);
-            subitem.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         }
         GameObject keyset = Instantiate(Key, new Vector3(Key_px, Key_py, 0), Quaternion.identity);
         keyset.name = "Home_key";
+        keyset.GetComponent<Subgo_ctr>().State_set(Key_px, Key_py);
     }
 }
