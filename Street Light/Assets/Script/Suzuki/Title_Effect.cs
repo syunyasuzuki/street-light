@@ -21,13 +21,13 @@ public class Title_Effect : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        scale_x += 0.02f;
-        scale_y += 0.02f;
+        scale_x += 0.025f;
+        scale_y += 0.025f;
         alpha -= 0.02f;
         transform.localScale = new Vector2(scale_x, scale_y);
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, alpha);
 
-        if (scale_x >= 1.5f)
+        if (scale_x >= 2.0f)
         {
             scale_x = 0.0f;
             scale_y = 0.0f;
