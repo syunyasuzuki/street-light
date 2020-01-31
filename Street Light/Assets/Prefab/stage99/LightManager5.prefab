@@ -58,7 +58,7 @@ MonoBehaviour:
   Need_Move: 1
   Move_vec: 1
   Move_drct: 3
-  Cut_move: 3
+  Cut_move: 4
   Flashing: 0
   F_weight: 1
   Need_power: 0
