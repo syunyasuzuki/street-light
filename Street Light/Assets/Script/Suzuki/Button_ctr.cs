@@ -77,5 +77,11 @@ public class Button_ctr : MonoBehaviour
         SceneManager.LoadScene("Stage3");
         Time.timeScale = 1.0f;
     }
+
+    public void Game4()
+    {
+        SceneManager.LoadScene("Stage99");
+        Time.timeScale = 1.0f;
+    }
     //--------------------------------------------------------------//
 }
