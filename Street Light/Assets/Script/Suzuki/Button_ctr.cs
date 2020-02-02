@@ -32,7 +32,7 @@ public class Button_ctr : MonoBehaviour
     public void Go_Title()
     {
         //タイトルシーンに移動
-        SceneManager.LoadScene("TitleScene");
+        SceneManager.LoadScene("TitleScene_E");
         Time.timeScale = 1.0f;
     }
 
