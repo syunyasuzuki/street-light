@@ -25,6 +25,7 @@ public class player_ctr : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        transform.Rotate(new Vector3(0.0f, 0.0f, 3.0f));
         // ゲームオーバー処理
         if (Map.GetComponent<Map>().P_checker(transform.position.x, transform.position.y) == 1)
         {
