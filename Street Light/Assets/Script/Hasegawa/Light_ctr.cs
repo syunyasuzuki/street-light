@@ -73,30 +73,31 @@ public class Light_ctr : MonoBehaviour
     //電源をオンオフする
     public void Power_onoff()
     {
-        if (light_status == true)
-        {
-            light_status = false;
-            for (int y = 0; y < L_scale_y + move_y; y++)
-            {
-                for (int x = 0; x < L_scale_x + move_x; x++)
-                {
-                    gameObject.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x, L_def_py + position_y + y, 0);
-                }
-            }
-            Light_off();
-        }
-        else
+        if (light_status == false)
         {
             light_status = true;
             for (int y = 0; y < L_scale_y + move_y; y++)
             {
                 for (int x = 0; x < L_scale_x + move_x; x++)
                 {
-                    gameObject.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x, L_def_py + position_y + y, light_mode[y, x]);
+                    Map.gameObject.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x, L_def_py + position_y + y, light_mode[y, x]);
                 }
             }
             Light_on();
         }
+        /*else
+        {
+            light_status = false;
+            for (int y = 0; y < L_scale_y + move_y; y++)
+            {
+                for (int x = 0; x < L_scale_x + move_x; x++)
+                {
+                    Map.GetComponent<Map>().Rewrite_map(L_def_px + position_x + x, L_def_py + position_y + y, 0);
+                }
+            }
+            Light_off();
+        }
+        */
     }
 
     //--------------------------------------------------------
@@ -217,7 +218,7 @@ public class Light_ctr : MonoBehaviour
             GameObject subgo = Instantiate(Power, new Vector3(P_def_px, P_def_py, 0), Quaternion.identity);
             subgo.name = gameObject.name + "-power";
             subgo.GetComponent<Subgo_ctr>().State_set(P_def_px, P_def_py);
-            subgo.GetComponent<Power_ctr>().What_parent(gameObject.name, Def_power);
+            subgo.GetComponent<Power_ctr>().What_parent(gameObject.name);
             subgo.transform.parent = gameObject.transform;
             light_status = Def_power;
         }
