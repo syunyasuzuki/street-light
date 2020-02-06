@@ -23,12 +23,12 @@ public class Subgo_ctr : MonoBehaviour {
         if (state == false && map.GetComponent<Map>().Map_state(px,py)!=0){
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
             state = true;
-            Debug.Log("ついた");
+            //Debug.Log("ついた");
         }
         if (state == true && map.GetComponent<Map>().Map_state(px,py) == 0){
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
             state = false;
-            Debug.Log("きえた");
+            //Debug.Log("きえた");
         }
     }
 }
