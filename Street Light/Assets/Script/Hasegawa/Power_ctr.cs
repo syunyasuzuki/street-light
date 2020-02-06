@@ -10,9 +10,12 @@ public class Power_ctr : MonoBehaviour {
     
     private GameObject Parent_Light;
 
+    Animator animator;
+
     //プレイヤーが電源をつけたり消したりするとき用
     public void Switch_onoff(){
         Parent_Light.GetComponent<Light_ctr>().Power_onoff();
+        animator.SetTrigger("ON_Trigger");
     }
 
     //親の名前と電源の状態を教える
@@ -22,6 +25,7 @@ public class Power_ctr : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
+        animator = GetComponent<Animator>();
         Parent_Light = GameObject.Find(parent_name);
 	}
 	

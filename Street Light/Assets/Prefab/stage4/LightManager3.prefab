@@ -67,4 +67,4 @@ MonoBehaviour:
   P_def_py: 3
   Light_single: {fileID: 1468668821097574, guid: 3f1797a5d9333f542a72abbb0ee76a11,
     type: 2}
-  Power: {fileID: 1123280808415170, guid: 820d152dad969a04f853d32a281c5ffb, type: 2}
+  Power: {fileID: 1646410503427784, guid: a0e00f36c852ea04cb2212edfc0604c1, type: 2}
