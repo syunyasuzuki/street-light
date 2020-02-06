@@ -21,7 +21,7 @@ public class ClearManager : Button_ctr
     [SerializeField] Button List3;
 
     float alpha;
-    float Y = 2.0f;
+    float Y = 4.0f;
 
 	// Use this for initialization
 	void Start ()

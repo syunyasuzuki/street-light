@@ -1214,6 +1214,48 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1308237749}
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1001 &1805055520
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4838175577235680, guid: 68a70f1a3f46988478e46b1ed733f885, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838175577235680, guid: 68a70f1a3f46988478e46b1ed733f885, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838175577235680, guid: 68a70f1a3f46988478e46b1ed733f885, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838175577235680, guid: 68a70f1a3f46988478e46b1ed733f885, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838175577235680, guid: 68a70f1a3f46988478e46b1ed733f885, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838175577235680, guid: 68a70f1a3f46988478e46b1ed733f885, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838175577235680, guid: 68a70f1a3f46988478e46b1ed733f885, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838175577235680, guid: 68a70f1a3f46988478e46b1ed733f885, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 68a70f1a3f46988478e46b1ed733f885, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1828449671 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1717559648121724, guid: 213af765ce5903a4a9f3a9d89af6e3b6,
